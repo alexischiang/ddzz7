@@ -3,11 +3,22 @@
     <img src="../assets/autochesslogo.png" alt="the logo" />
     <h1>Teambuilder for Auto Chess Mobile.</h1>
     <h2>build your strongest team with DDZZ7 and win!</h2>
+    <button class="btn btn1" @click="goTeambuilder">BUILD RIGHTNOW</button>
+    <button class="btn btn2" @click="goDatabase">CHECK DATABASE</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goTeambuilder() {
+      this.$router.push("/teambuilder");
+    },
+    goDatabase() {
+      this.$router.push("/database");
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -58,5 +69,31 @@ export default {};
   font-size: 30px;
   top: 190px;
   color: #f5f5f5;
+}
+.btn {
+  cursor: pointer;
+  appearance: none;
+  background-color: rgba(58, 75, 172, 0.85);
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.btn1,
+.btn2 {
+  border: 2px solid white;
+  top: 200px;
+  width: 300px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.4s;
+  margin: 0 20px 0;
+}
+.btn1:hover,
+.btn2:hover {
+  background-color: #536dfe;
+  box-shadow: 0 0 20px black;
 }
 </style>

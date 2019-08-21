@@ -4,12 +4,14 @@ import router from 'vue-router'
 vue.use(router)
 
 import Index from './components/Index'
-import PatchNotes from './components/patchnotes'
-import News from './components/news'
-import DataBase from './components/database'
-import Characters from './components/characters'
-import Races from './components/races'
-import Classes from './components/classes'
+import PatchNotes from './components/Patchnotes'
+import News from './components/News'
+import DataBase from './components/Database'
+import Teambuilder from './components/Teambuilder'
+
+// import Characters from './components/Characters'
+// import Races from './components/Races'
+// import Classes from './components/Classes'
 
 export default new router({
     mode: 'history',
@@ -26,17 +28,13 @@ export default new router({
             component: News
         },
         {
-            path: '/characters',
-            component: Characters
+            path: '/database',
+            component: DataBase
         },
         {
-            path: '/races',
-            component: Races
+            path: '/teambuilder',
+            component: Teambuilder
         },
-        {
-            path: '/classes',
-            component: Classes
-        }
 
     ]
 })

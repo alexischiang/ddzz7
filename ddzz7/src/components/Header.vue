@@ -8,14 +8,11 @@
           </router-link>
         </div>
         <ul class="nav-links">
-          <router-link to="/characters">
-            <li>Characters</li>
+          <router-link to="/teambuilder">
+            <li>TeamBuilder</li>
           </router-link>
-          <router-link to="/races">
-            <li>Races</li>
-          </router-link>
-          <router-link to="/classes">
-            <li>Classes</li>
+          <router-link to="/database">
+            <li>Database</li>
           </router-link>
           <router-link to="/patchnotes">
             <li>Patch Notes</li>
@@ -97,8 +94,5 @@ header {
 
 .wrapper .nav-links .router-link-exact-active {
   color: #fff;
-}
-
-li {
 }
 </style>
