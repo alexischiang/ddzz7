@@ -48,7 +48,7 @@ header {
   border-bottom: 0.5px solid rgba(252, 252, 252, 0.7);
 }
 .wrapper {
-  width: 98%;
+  width: 90%;
   height: 100%;
   display: flex;
   margin-left: auto;

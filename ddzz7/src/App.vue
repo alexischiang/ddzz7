@@ -17,11 +17,14 @@ export default {
 
 <style>
 body {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  width: 100%;
   padding: 0;
   margin: 0;
   background-color: #3f51b5;
-}
-#app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

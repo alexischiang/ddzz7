@@ -1,0 +1,10 @@
+{
+    "haiyao": {
+        "cost": 4,
+        "atk": 10
+    },
+    "langren": {
+        "cost": 3,
+        "atk": 20
+    }
+}

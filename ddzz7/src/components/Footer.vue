@@ -2,7 +2,7 @@
   <div class="container">
     <div class="divider"></div>
     <p class="p p1">DDZZ7 is not affiliated with or endorsed by Drodo, Dragonest Co.Ltd, or ImbaTV.</p>
-    <p class="p p2">DESIGN BY ALEXISCHIANG</p>
+    <p class="p p2">DESIGNED BY ALEXISCHIANG</p>
   </div>
 </template>
 
