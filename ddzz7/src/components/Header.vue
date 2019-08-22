@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <header>
       <div class="wrapper">
         <div class="navbarleft">
@@ -8,18 +8,18 @@
           </router-link>
         </div>
         <ul class="nav-links">
-          <router-link to="/teambuilder">
-            <li>TeamBuilder</li>
-          </router-link>
-          <router-link to="/database">
-            <li>Database</li>
-          </router-link>
-          <router-link to="/patchnotes">
-            <li>Patch Notes</li>
-          </router-link>
-          <router-link to="/news">
-            <li>News</li>
-          </router-link>
+          <li>
+            <router-link class="nav-link" to="/teambuilder">TeamBuilder</router-link>
+          </li>
+          <li>
+            <router-link class="nav-link" to="/database">Database</router-link>
+          </li>
+          <li>
+            <router-link class="nav-link" to="/patchnotes">Patch Notes</router-link>
+          </li>
+          <li>
+            <router-link class="nav-link" to="/news">News</router-link>
+          </li>
         </ul>
       </div>
     </header>
@@ -34,6 +34,10 @@ export default {};
 @font-face {
   font-family: sofia-pro;
   src: url(../assets/sofiapro-light.otf);
+}
+.container {
+  padding: 0;
+  margin: 0;
 }
 header {
   z-index: 99999;
@@ -73,6 +77,14 @@ header {
   display: flex;
   align-items: center;
   margin-right: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
@@ -82,10 +94,15 @@ header {
   font-weight: 600;
   line-height: 1em;
   font-family: sofia-pro;
-  margin-top: 3px;
-  margin-left: 50px;
   letter-spacing: 1px;
   transition: 400ms;
+  padding: 0 25px;
+  height: 100%;
+  /* 与::before有关 ? */
+  position: relative;
+  /* 垂直居中a中文本 */
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover {
@@ -94,5 +111,22 @@ header {
 
 .wrapper .nav-links .router-link-exact-active {
   color: #fff;
+}
+.wrapper .nav-links .router-link-exact-active::before {
+  width: 100%;
+}
+.nav-link::before {
+  content: "";
+  background-color: #fff;
+  width: 0;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  /* 移动中心点后动画会变成向中收缩
+  left：0也能实现相应位置但动画将会变为向左收缩
+   */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
 }
 </style>
