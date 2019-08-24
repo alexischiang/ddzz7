@@ -15,7 +15,7 @@
         }
     },
     "AbyssalGuard": {
-        "cnname": "",
+        "cnname": "海渊守卫",
         "cost": 2,
         "races": "Marine",
         "classes": "Warrior",
@@ -60,7 +60,7 @@
         }
     },
     "BlightSorcerer": {
-        "cnname": "",
+        "cnname": "凋零法师",
         "cost": 5,
         "races": "Egersis",
         "classes": "Mage",
@@ -105,7 +105,7 @@
         }
     },
     "DesperateDoctor": {
-        "cnname": "",
+        "cnname": "冰川巫医",
         "cost": 2,
         "races": "Glacier Clan",
         "classes": "Warlock",
@@ -391,7 +391,7 @@
         }
     },
     "PoisonousWorm": {
-        "cnname": "",
+        "cnname": "魔化巨虫",
         "cost": 3,
         "races": "Beast",
         "classes": "Warlock",
@@ -436,7 +436,7 @@
         }
     },
     "Ripper": {
-        "cnname": "",
+        "cnname": "伐木者",
         "cost": 2,
         "races": "Goblin",
         "classes": "Mech",
@@ -528,7 +528,7 @@
         }
     },
     "SkullHunter": {
-        "cnname": "",
+        "cnname": "独眼猎手",
         "cost": 2,
         "races": "Cave Clan",
         "classes": "Hunter",
@@ -559,7 +559,7 @@
         }
     },
     "SoulBreaker": {
-        "cnname": "",
+        "cnname": "拘魂",
         "cost": 1,
         "races": "Goblin",
         "classes": "Assassin",
@@ -710,7 +710,7 @@
         }
     },
     "TsunamiStalker": {
-        "cnname": "海啸",
+        "cnname": "海啸追猎者",
         "cost": 5,
         "races": "Marine",
         "classes": "Hunter",
@@ -725,7 +725,7 @@
         }
     },
     "TuskChampion": {
-        "cnname": "",
+        "cnname": "海象拳王",
         "cost": 1,
         "races": "Beast",
         "classes": "Warrior",
@@ -770,7 +770,7 @@
         }
     },
     "Venomancer": {
-        "cnname": "",
+        "cnname": "萃取者",
         "cost": 4,
         "races": "Goblin",
         "classes": "Warlock",
@@ -785,7 +785,7 @@
         }
     },
     "WarpwoodSage": {
-        "cnname": "",
+        "cnname": "扭木贤者",
         "cost": 3,
         "races": "Feathered",
         "classes": "Druid",
@@ -831,7 +831,7 @@
         }
     },
     "WindRanger": {
-        "cnname": "",
+        "cnname": "逐风游侠",
         "cost": 3,
         "races": "Feathered",
         "classes": "Hunter",
@@ -846,7 +846,7 @@
         }
     },
     "WisperSeer": {
-        "cnname": "",
+        "cnname": "慧语先知",
         "cost": 2,
         "races": "Feathered",
         "classes": "Druid",
