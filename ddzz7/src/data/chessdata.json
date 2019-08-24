@@ -421,10 +421,10 @@
         }
     },
     "RedaxeChief": {
-        "cnname": "赤斧猎手",
+        "cnname": "斧王",
         "cost": 1,
         "races": "Cave Clan",
-        "classes": "Hunter",
+        "classes": "Warrior",
         "atkspd": 1.5,
         "range": 1,
         "armor": 5,
@@ -466,7 +466,7 @@
             "hp": 450
         }
     },
-    "Shadowcrawle": {
+    "Shadowcrawler": {
         "cnname": "幽影猎行者",
         "cost": 3,
         "races": "Feathered",

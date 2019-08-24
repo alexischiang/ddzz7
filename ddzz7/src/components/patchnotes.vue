@@ -1,14 +1,9 @@
 <template>
-  <div>
-    <div v-for=" url in urls">
-      <img :src="url" />
-    </div>
-  </div>
+  <div></div>
 </template>
 
 <script>
 import chessdatajson from "../data/chessdata.json";
-import { type } from "os";
 export default {
   data() {
     return {

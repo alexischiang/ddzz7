@@ -264,19 +264,21 @@
         <div class="data-block head-data">Health</div>
         <div class="data-block head-data">Range</div>
       </div>
-      <div v-for="(value,key) in chessdata" class="row table-body">
-        <div class="data-block body-data">
-          <img :src="`/headpics/${key}.jpg`" />
-          <p>{{ key }}</p>
+      <div v-for="obj in ClassRacefilteredArray">
+        <div v-for="(value,key) in obj" class="row table-body">
+          <div class="data-block body-data">
+            <img :src="`/headpics/${key}.jpg`" />
+            <p>{{ key }}</p>
+          </div>
+          <div class="data-block body-data">{{ chessdata[key].cost}}</div>
+          <div class="data-block body-data">{{ chessdata[key].races}}</div>
+          <div class="data-block body-data">{{ chessdata[key].classes}}</div>
+          <div class="data-block body-data">{{ chessdata[key].armor}}</div>
+          <div class="data-block body-data">{{ chessdata[key].mr}}</div>
+          <div class="data-block body-data">{{ chessdata[key].lv1.dmg}}</div>
+          <div class="data-block body-data">{{ chessdata[key].lv1.hp}}</div>
+          <div class="data-block body-data">{{ chessdata[key].range}}</div>
         </div>
-        <div class="data-block body-data">{{ value.cost}}</div>
-        <div class="data-block body-data">{{ value.races}}</div>
-        <div class="data-block body-data">{{ value.classes}}</div>
-        <div class="data-block body-data">{{ value.armor}}</div>
-        <div class="data-block body-data">{{ value.mr}}</div>
-        <div class="data-block body-data">{{ value.lv1.dmg}}</div>
-        <div class="data-block body-data">{{ value.lv1.hp}}</div>
-        <div class="data-block body-data">{{ value.range}}</div>
       </div>
     </div>
   </div>
@@ -284,6 +286,7 @@
 
 <script>
 import chessdatajson from "../data/chessdata.json";
+import { race } from "q";
 export default {
   data() {
     return {
@@ -321,21 +324,95 @@ export default {
     };
   },
   computed: {
-    urls: function() {
-      let urlarray = [];
-      for (var key in this.chessdata) {
-        urlarray.push(`/headpics/${key}.jpg`);
+    // 暂时无用
+    // urls: function() {
+    //   let urlarray = [];
+    //   for (let key in this.chessdata) {
+    //     urlarray.push(`/headpics/${key}.jpg`);
+    //   }
+    //   return urlarray;
+    // },
+
+    // 返回数组 [{棋子名字:{种族:xx,职业:xx}},...]
+    // 为筛选器做输入数组因为需要使用filter方法
+    chessArray: function() {
+      let myArray = [];
+      for (let key in this.chessdata) {
+        const temp = {};
+        let race = "";
+        if (this.chessdata[key].races == "Glacier Clan") {
+          race = "Glacier";
+        } else if (this.chessdata[key].races == "Cave Clan") {
+          race = "caveclan";
+        } else {
+          race = this.chessdata[key].races;
+        }
+        temp[key] = {
+          races: race,
+          classes: this.chessdata[key].classes
+          // cnname: this.chessdata[key]["cnname"],
+          // cost: this.this.chessdata[key]["cost"]
+          // armor: this.chessdata[key]["armor"],
+          // mr: this.chessdata[key].mr
+          // dmg: this.chessdata[key]["lv1"].dmg,
+          // hp: this.this.chessdata[key]["lv1"].hp
+        };
+        myArray.push(temp);
       }
-      return urlarray;
+      return myArray;
+    },
+    // 逻辑解释：
+    // 1.R -> C：先筛选R （过滤） 变换被CR监听 再选C (过滤)
+    // 2.C -> R: 先筛选C (过滤) 没有被R监听 再选R （过滤） 变换被CR监听 （过滤）
+    RacefilteredArray: function() {
+      if (this.isActiveRace[14]["none"]) {
+        console.log("all");
+        return this.chessArray;
+      } else {
+        console.log("race-filter");
+        return this.chessArray.filter(a => {
+          for (let key in a) {
+            for (let i = 0; i < 14; i++) {
+              if (this.isActiveRace[i][a[key].races.toLowerCase()]) {
+                return true;
+              }
+            }
+          }
+          return false;
+        });
+      }
+    },
+    ClassRacefilteredArray: function() {
+      if (this.isActiveClass[10]["none"]) {
+        console.log("all");
+        return this.RacefilteredArray;
+      } else {
+        console.log("race-class-filter");
+        return this.RacefilteredArray.filter(a => {
+          for (let key in a) {
+            for (let i = 0; i < 10; i++) {
+              if (this.isActiveClass[i][a[key].classes.toLowerCase()]) {
+                return true;
+              }
+            }
+          }
+          return false;
+        });
+      }
     }
   },
   methods: {
     chooseRace(race) {
-      for (var i = 0; i < 14; i++) {
-        for (var key in this.isActiveRace[i]) {
+      for (let i = 0; i < 14; i++) {
+        for (let key in this.isActiveRace[i]) {
           if (key == race) {
-            this.isActiveRace[i][key] = !this.isActiveRace[i][key];
-            this.isActiveRace[14]["none"] = !this.isActiveRace[14]["none"];
+            if (this.isActiveRace[i][key]) {
+              this.isActiveRace[i][key] = false;
+              this.isActiveRace[14]["none"] = true;
+            } else {
+              this.isActiveRace[i][key] = true;
+              this.isActiveRace[14]["none"] = false;
+            }
           } else {
             this.isActiveRace[i][key] = false;
           }
@@ -346,8 +423,13 @@ export default {
       for (var i = 0; i < 10; i++) {
         for (var key in this.isActiveClass[i]) {
           if (key == theclass) {
-            this.isActiveClass[i][key] = !this.isActiveClass[i][key];
-            this.isActiveClass[10]["none"] = !this.isActiveClass[10]["none"];
+            if (this.isActiveClass[i][key]) {
+              this.isActiveClass[i][key] = false;
+              this.isActiveClass[10]["none"] = true;
+            } else {
+              this.isActiveClass[i][key] = true;
+              this.isActiveClass[10]["none"] = false;
+            }
           } else {
             this.isActiveClass[i][key] = false;
           }
