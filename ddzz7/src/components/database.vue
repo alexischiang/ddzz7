@@ -1,5 +1,6 @@
 <template>
   <div class="db-container">
+    <!-- 过滤器部分 -->
     <div class="filter">
       <div class="divider race-divider">
         <p>Races Filter</p>
@@ -36,13 +37,13 @@
           </div>
         </button>
         <button
-          @click="chooseRace('divinity')"
+          @click="chooseRace('god')"
           class="btn race-btn"
-          v-bind:class="{ active:isActiveRace[3]['divinity'] }"
+          v-bind:class="{ active:isActiveRace[3]['god'] }"
         >
           <div class="btn-wrapper race-wrapper">
             <img src="../data/races/divinity.png" alt />
-            <p>Divinity</p>
+            <p>God</p>
           </div>
         </button>
         <button
@@ -252,7 +253,9 @@
         </button>
       </div>
     </div>
+    <!-- 数据表部分 -->
     <div class="data-table">
+      <!-- 表头 -->
       <div class="row table-head">
         <div class="data-block head-data">Champion</div>
         <div class="data-block head-data">Cost</div>
@@ -264,19 +267,39 @@
         <div class="data-block head-data">Health</div>
         <div class="data-block head-data">Range</div>
       </div>
+      <!-- 表身 -->
       <div v-for="obj in ClassRacefilteredArray">
         <div v-for="(value,key) in obj" class="row table-body">
-          <div class="data-block body-data">
+          <!-- 头像+名字 -->
+          <div class="data-block body-data" v-bind:class="`cost${chessdata[key].cost}`">
             <img :src="`/headpics/${key}.jpg`" />
             <p>{{ key }}</p>
           </div>
-          <div class="data-block body-data">{{ chessdata[key].cost}}</div>
-          <div class="data-block body-data">{{ chessdata[key].races}}</div>
-          <div class="data-block body-data">{{ chessdata[key].classes}}</div>
+          <!-- 费用 -->
+          <div class="data-block body-data">
+            {{ chessdata[key].cost}}
+            <img src="/cost.jpg" />
+          </div>
+          <!-- 种族 -->
+          <div
+            v-if="chessdata[key]['2races']"
+            class="data-block body-data"
+          >{{ chessdata[key].races}}/{{chessdata[key]['2races']}}</div>
+          <div v-else class="data-block body-data">{{ chessdata[key].races}}</div>
+          <!-- 职业 -->
+          <div
+            class="data-block body-data"
+            v-bind:class="`${chessdata[key].classes}`"
+          >{{ chessdata[key].classes}}</div>
+          <!-- 护甲 -->
           <div class="data-block body-data">{{ chessdata[key].armor}}</div>
+          <!-- 魔抗 -->
           <div class="data-block body-data">{{ chessdata[key].mr}}</div>
+          <!-- lv1伤害 -->
           <div class="data-block body-data">{{ chessdata[key].lv1.dmg}}</div>
+          <!-- lv1血量 -->
           <div class="data-block body-data">{{ chessdata[key].lv1.hp}}</div>
+          <!-- 射程 -->
           <div class="data-block body-data">{{ chessdata[key].range}}</div>
         </div>
       </div>
@@ -295,7 +318,7 @@ export default {
         { beast: false },
         { caveclan: false },
         { demon: false },
-        { divinity: false },
+        { god: false },
         { dragon: false },
         { dwarf: false },
         { egersis: false },
@@ -349,6 +372,7 @@ export default {
         }
         temp[key] = {
           races: race,
+          "2races": this.chessdata[key]["2races"],
           classes: this.chessdata[key].classes
           // cnname: this.chessdata[key]["cnname"],
           // cost: this.this.chessdata[key]["cost"]
@@ -373,7 +397,10 @@ export default {
         return this.chessArray.filter(a => {
           for (let key in a) {
             for (let i = 0; i < 14; i++) {
-              if (this.isActiveRace[i][a[key].races.toLowerCase()]) {
+              if (
+                this.isActiveRace[i][a[key].races.toLowerCase()] ||
+                this.isActiveRace[i][a[key]["2races"].toLowerCase()]
+              ) {
                 return true;
               }
             }
@@ -525,6 +552,22 @@ export default {
 /* Filter Part END */
 
 /* Data Part BEGIN */
+
+/* 
+tips:
+每一块
+{
+  包含表头的所有块: data-block
+  表头: head-data
+  不含表头: body-data
+}
+每一行
+{
+  包含表头的所有行: row
+  表头: table-head
+  不含表头: table-body
+}
+ */
 .data-table {
   margin-left: 10px;
   margin-right: 10px;
@@ -557,21 +600,181 @@ export default {
   overflow: hidden;
   justify-content: left;
   align-items: center;
+  position: relative;
 }
 
-/* 棋子头像+名字 第一块样式*/
+/* 棋子头像+名字 (含表头) 第一块样式*/
 .data-block:first-child {
   flex: 2;
   padding: 0 0 0 10px;
 }
+/* 棋子头像+名字 第一块样式*/
+.data-block.body-data:first-child {
+  font-size: 14px;
+}
+/* 名字根据费用变色 */
+.cost1 {
+  color: #d2d2d2;
+}
+.cost2 {
+  color: #b6e4ec;
+}
+.cost3 {
+  color: #526dec;
+}
+.cost4 {
+  color: #ae7ff7;
+}
+.cost5 {
+  color: #f29a38;
+}
 
 /* 棋子头像 样式 */
-.body-data img {
+.body-data:nth-child(1) img {
   position: relative;
   left: -2px;
   width: 32px;
   height: 32px;
   margin-right: 10px;
+}
+/* cost图片 样式 */
+.body-data:nth-child(2) img {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+/* 第三块(race) (含表头) 样式 */
+.data-block:nth-child(3) {
+  flex: 2;
+}
+
+/* 第四块 class (不含表头) 样式 */
+.body-data:nth-child(4) {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  z-index: 1;
+}
+
+/* 第四块 class (不含表头) 背景 */
+.Witcher::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-witcher.png") no-repeat;
+  background-size: cover;
+}
+.Assassin::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-assassin.png") no-repeat;
+  background-size: cover;
+}
+.Druid::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-druid.png") no-repeat;
+  background-size: cover;
+}
+.Hunter::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-hunter.png") no-repeat;
+  background-size: cover;
+}
+.Knight::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-knight.png") no-repeat;
+  background-size: cover;
+}
+.Mage::after {
+  content: "";
+  position: absolute;
+  top: 5px0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-mage.png") no-repeat;
+  background-size: cover;
+}
+.Mech::after {
+  content: "";
+  position: absolute;
+  top: 5px0;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-mech.png") no-repeat;
+  background-size: cover;
+}
+.Shaman::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-shaman.png") no-repeat;
+  background-size: cover;
+}
+.Warlock::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-warlock.png") no-repeat;
+  background-size: cover;
+}
+.Warrior::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100px;
+  height: 40px;
+  z-index: -1;
+  opacity: 0.7;
+  background: url("../data/classes/bg-warrior.png") no-repeat;
+  background-size: cover;
 }
 
 /* Data Part END */
