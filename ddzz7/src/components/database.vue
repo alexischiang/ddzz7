@@ -284,12 +284,17 @@
           <div
             v-if="chessdata[key]['2races']"
             class="data-block body-data"
+            v-bind:class="`block-bg ${chessdata[key]['races']}N${chessdata[key]['2races']}`"
           >{{ chessdata[key].races}}/{{chessdata[key]['2races']}}</div>
-          <div v-else class="data-block body-data">{{ chessdata[key].races}}</div>
+          <div
+            v-else
+            class="data-block body-data"
+            v-bind:class="`block-bg ${chessdata[key]['races']}N${chessdata[key]['2races']}`"
+          >{{ chessdata[key].races}}</div>
           <!-- 职业 -->
           <div
             class="data-block body-data"
-            v-bind:class="`${chessdata[key].classes}`"
+            v-bind:class="`block-bg ${chessdata[key].classes}`"
           >{{ chessdata[key].classes}}</div>
           <!-- 护甲 -->
           <div class="data-block body-data">{{ chessdata[key].armor}}</div>
@@ -643,138 +648,189 @@ tips:
   height: 16px;
   margin-left: 5px;
 }
-/* 第三块(race) (含表头) 样式 */
+/* 第三块 race (含表头) 样式 */
 .data-block:nth-child(3) {
   flex: 2;
 }
 
-/* 第四块 class (不含表头) 样式 */
-.body-data:nth-child(4) {
+/* 第三+四块 class+race (不含表头) 样式 */
+.body-data:nth-child(4),
+.body-data:nth-child(3) {
   color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
   z-index: 1;
 }
-
-/* 第四块 class (不含表头) 背景 */
-.Witcher::after {
+/* 种族/职业 块背景通用样式 */
+.block-bg::after {
   content: "";
   position: absolute;
   top: 5px;
-  left: 0;
+  left: 30px;
   width: 100px;
   height: 40px;
   z-index: -1;
   opacity: 0.7;
+}
+/* 职业 块背景图 */
+.Witcher::after {
+  /* class-block-bg */
   background: url("../data/classes/bg-witcher.png") no-repeat;
   background-size: cover;
 }
 .Assassin::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-assassin.png") no-repeat;
   background-size: cover;
 }
 .Druid::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-druid.png") no-repeat;
   background-size: cover;
 }
 .Hunter::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-hunter.png") no-repeat;
   background-size: cover;
 }
 .Knight::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-knight.png") no-repeat;
   background-size: cover;
 }
 .Mage::after {
-  content: "";
-  position: absolute;
-  top: 5px0;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-mage.png") no-repeat;
   background-size: cover;
 }
 .Mech::after {
-  content: "";
-  position: absolute;
-  top: 5px0;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-mech.png") no-repeat;
   background-size: cover;
 }
 .Shaman::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-shaman.png") no-repeat;
   background-size: cover;
 }
 .Warlock::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-warlock.png") no-repeat;
   background-size: cover;
 }
 .Warrior::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 100px;
-  height: 40px;
-  z-index: -1;
-  opacity: 0.7;
+  /* class-block-bg */
   background: url("../data/classes/bg-warrior.png") no-repeat;
   background-size: cover;
+}
+
+/* 种族 块背景图 */
+.BeastN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-beast.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.Cave::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-caveclan.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.DemonN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-demon.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.GodN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-divinity.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.BeastN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-beast.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.DragonN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-dragon.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.DwarfN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-dwarf.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.EgersisN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-egersis.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.FeatheredN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-feathered.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.Glacier::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-glacier.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.GoblinN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-goblin.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.HumanN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-human.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.KiraN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-kira.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.MarineN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-marine.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.SpiritN::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-spirit.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.HumanNDragon::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-human-dragon.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.FeatheredNDragon::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-feathered-dragon.png") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+.BeastNHuman::after {
+  /* race-block-bg */
+  background: url("/races-bg/bg-human-beast.png") no-repeat;
+  background-size: cover;
+  opacity: 0.7;
 }
 
 /* Data Part END */
