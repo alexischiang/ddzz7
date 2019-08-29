@@ -268,8 +268,13 @@
         <div class="data-block head-data">Range</div>
       </div>
       <!-- 表身 -->
-      <div v-for="obj in ClassRacefilteredArray">
-        <div v-for="(value,key) in obj" class="row table-body">
+      <!-- 
+        添加棋子方法：
+        1.在chessdata.json中按格式加入数据
+        2.在public/headpics/中放入新棋子头像 名字需与json中key值一样
+      -->
+      <div v-for="obj  in ClassRacefilteredArray">
+        <div v-for="(value,key) in obj" :key="key" class="row table-body">
           <!-- 头像+名字 -->
           <div class="data-block body-data" v-bind:class="`cost${chessdata[key].cost}`">
             <img :src="`/headpics/${key}.jpg`" />

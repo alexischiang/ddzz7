@@ -15,10 +15,10 @@
             <router-link class="nav-link" to="/database">Database</router-link>
           </li>
           <li>
-            <router-link class="nav-link" to="/patchnotes">Patch Notes</router-link>
+            <router-link class="nav-link society" to="/society">Society</router-link>
           </li>
           <li>
-            <router-link class="nav-link" to="/news">News</router-link>
+            <router-link class="nav-link" to="/patchnotes">Patch Notes</router-link>
           </li>
         </ul>
       </div>
@@ -80,7 +80,6 @@ header {
   padding: 0;
   margin: 0;
 }
-
 .nav-links li {
   height: 100%;
   display: flex;

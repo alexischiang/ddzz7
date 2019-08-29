@@ -287,6 +287,22 @@
             "hp": 950
         }
     },
+    "GodofWar": {
+        "cnname": "战神",
+        "cost": 1,
+        "races": "God",
+        "2races": "",
+        "classes": "Warrior",
+        "atkspd": 0,
+        "range": 1,
+        "armor": 5,
+        "mr": 0,
+        "lv1": {
+            "dps": 0,
+            "dmg": 0,
+            "hp": 650
+        }
+    },
     "HeavenBomber": {
         "cnname": "堕天者",
         "cost": 1,

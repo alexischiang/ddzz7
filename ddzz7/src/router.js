@@ -5,13 +5,11 @@ vue.use(router)
 
 import Index from './components/Index'
 import PatchNotes from './components/Patchnotes'
-import News from './components/News'
+import Society from './components/Society'
+import News from './components/SocietyChildren/News'
+import Cards from './components/SocietyChildren/Cards'
 import DataBase from './components/Database'
 import Teambuilder from './components/Teambuilder'
-
-// import Characters from './components/Characters'
-// import Races from './components/Races'
-// import Classes from './components/Classes'
 
 export default new router({
     mode: 'history',
@@ -24,8 +22,17 @@ export default new router({
             component: PatchNotes
         },
         {
-            path: '/news',
-            component: News
+            path: '/society',
+            component: Society,
+            children: [{
+                    path: '/news',
+                    component: News
+                },
+                {
+                    path: '/cards',
+                    component: Cards
+                }
+            ]
         },
         {
             path: '/database',
