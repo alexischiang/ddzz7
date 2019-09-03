@@ -1,7 +1,7 @@
 <template>
   <div class="index-a-container">
     <div class="lt-wrapper">
-      <div class="news" @click="jumptoNews">重要新闻</div>
+      <div class="news" @click="jumpto('news')">重要新闻</div>
       <pageRow :pagedata="pagedata[0]" />
       <pageRow :pagedata="pagedata[1]" />
       <pageRow :pagedata="pagedata[1]" />
@@ -11,12 +11,19 @@
       <pageRow :pagedata="pagedata[1]" />
     </div>
     <div class="rt-wrapper">
-      <div class="news" @click="jumptoNews" style="padding-left:10px">导航</div>
-      <div class="block-btn">
-        <img src="/kztj.jpg" alt />
+      <div class="news" style="padding-left:10px">导航</div>
+      <div style="overflow:hidden">
+        <div class="block-btn short" @click="jumpto('kztj')">
+          <img src="/kztj.jpg" alt />
+        </div>
+        <div class="block-btn short" @click="jumpto('sqzx')">
+          <img src="/sqzx.jpg" alt />
+        </div>
       </div>
-      <div class="block-btn" style="margin-left:10px">
-        <img src="/sqzx.jpg" alt />
+      <div>
+        <div class="block-btn long" @click="jumpto('kzgzq')">
+          <img src="/kzgzq.jpg" alt />
+        </div>
       </div>
     </div>
   </div>
@@ -51,8 +58,21 @@ export default {
     };
   },
   methods: {
-    jumptoNews: function() {
-      this.$router.push("/society/news");
+    jumpto: function(dir) {
+      switch (dir) {
+        case "news":
+          this.$router.push("/society/news");
+          break;
+        case "kztj":
+          this.$router.push("/society/cards");
+          break;
+        case "sqzx":
+          this.$router.push("/society");
+          break;
+        case "kzgzq":
+          this.$router.push("/teambuilder");
+          break;
+      }
     }
   }
 };
@@ -63,7 +83,7 @@ export default {
   z-index: 50;
   background: url("/bgimage.jpg") no-repeat;
   background-size: cover;
-  padding: 50px 45px;
+  padding: 50px 100px;
   margin: 0 auto 0;
   display: flex;
 }
@@ -81,19 +101,21 @@ export default {
   cursor: pointer;
 }
 .rt-wrapper {
-  flex: 1;
+  width: 320px;
   padding: 10px;
 }
 
 .block-btn {
-  width: 35%;
   float: left;
-  margin: 10px 5px;
+  margin: 10px 5px 0 5px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   overflow: hidden;
-  filter: brightness(0.8);
+  filter: brightness(0.8) grayscale(0.5);
   cursor: pointer;
   transition: 0.2s;
+}
+.short {
+  width: 145px;
 }
 .block-btn:hover {
   filter: brightness(1.1);
@@ -103,8 +125,14 @@ export default {
 }
 .block-btn img {
   display: block;
-  width: 100%;
+  height: 145px;
   transform: scale(1);
   transition: 0.4s;
+}
+.short img {
+  width: 145px;
+}
+.long img {
+  width: 302px;
 }
 </style>
