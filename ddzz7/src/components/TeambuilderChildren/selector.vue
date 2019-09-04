@@ -230,7 +230,7 @@
       </div>
     </div>
     <div class="search"></div>
-    <div class="form">
+    <div class="form" style="overflow:scroll">
       <div class="data-table">
         <!-- 表头 暂不需要 -->
         <!-- <div class="row table-head">
@@ -240,7 +240,12 @@
         </div>-->
         <!-- 表身 -->
         <div v-for="obj in ClassRacefilteredArray" class="outside-forloop">
-          <div v-for="(value,key) in obj" :key="key" class="row table-body">
+          <div
+            v-for="(value,key) in obj"
+            :key="key"
+            class="row table-body"
+            @click="pickChess([`${key}`,`${chessdata[key].cnname}`,`${chessdata[key].races}`,`${chessdata[key].classes}`])"
+          >
             <!-- 头像 -->
             <div class="data-block body-data pic-block">
               <img :src="`/headpics/${key}.jpg`" />
@@ -293,6 +298,9 @@ export default {
     },
     chooseClass(theclass) {
       this.$store.commit("chooseClass", theclass);
+    },
+    pickChess(chessinfo) {
+      this.$store.commit("pickChess", chessinfo);
     }
   }
 };
@@ -300,11 +308,11 @@ export default {
 
 <style scoped>
 .selector-container {
+  float: left;
   box-sizing: border-box;
   padding: 40px 50px;
   position: relative;
   width: 40%;
-  height: 500px;
   background: black;
 }
 .title {
@@ -385,7 +393,7 @@ p {
   transition: 0.3s;
 }
 .row:hover {
-  border: 1px solid #55efc4;
+  border: 2px solid #55efc4;
   background-color: rgb(1, 141, 1);
   filter: brightness(1.3);
 }

@@ -1,6 +1,6 @@
 {
     "AbyssalCrawler": {
-        "cnname": "海渊猎行者",
+        "cnname": "海渊夜行者",
         "cost": 2,
         "races": "Marine",
         "2races": "",
@@ -144,11 +144,11 @@
         }
     },
     "DoomArbiter": {
-        "cnname": "骑士",
+        "cnname": "终结审判官",
         "cost": 4,
         "races": "Demon",
         "2races": "",
-        "classes": "Knight",
+        "classes": "Warrior",
         "atkspd": 1.3,
         "range": 1,
         "armor": 5,
@@ -192,7 +192,7 @@
         }
     },
     "EgersisRanger": {
-        "cnname": "不眠射手",
+        "cnname": "不眠游侠",
         "cost": 1,
         "races": "Egersis",
         "2races": "",
@@ -208,7 +208,7 @@
         }
     },
     "EvilKnight": {
-        "cnname": "邪恶骑士",
+        "cnname": "不眠骑士",
         "cost": 3,
         "races": "Egersis",
         "2races": "",
@@ -224,7 +224,7 @@
         }
     },
     "FallenWitcher": {
-        "cnname": "堕落猎魔人",
+        "cnname": "沉沦猎魔人",
         "cost": 3,
         "races": "Demon",
         "2races": "",
@@ -240,7 +240,7 @@
         }
     },
     "FlamingWizard": {
-        "cnname": "火焰法师",
+        "cnname": "焰灵法师",
         "cost": 3,
         "races": "Human",
         "2races": "",
@@ -256,7 +256,7 @@
         }
     },
     "FrostKnight": {
-        "cnname": "冰川骑士",
+        "cnname": "冰霜骑士",
         "cost": 1,
         "races": "Glacier Clan",
         "2races": "",
@@ -336,7 +336,7 @@
         }
     },
     "HellKnight": {
-        "cnname": "地狱骑士",
+        "cnname": "炼狱骑士",
         "cost": 2,
         "races": "Demon",
         "2races": "",
@@ -400,7 +400,7 @@
         }
     },
     "PhantomQueen": {
-        "cnname": "幻影女王",
+        "cnname": "魅影女王",
         "cost": 2,
         "races": "Demon",
         "2races": "",
@@ -464,9 +464,9 @@
         }
     },
     "RedaxeChief": {
-        "cnname": "斧王",
+        "cnname": "赤斧酋长",
         "cost": 1,
-        "races": "Cave Clan",
+        "races": "caveclan",
         "2races": "",
         "classes": "Warrior",
         "atkspd": 1.5,
@@ -497,7 +497,7 @@
         }
     },
     "ShadowDevil": {
-        "cnname": "影魔",
+        "cnname": "暗影魔王",
         "cost": 3,
         "races": "Demon",
         "2races": "",
@@ -513,7 +513,7 @@
         }
     },
     "Shadowcrawler": {
-        "cnname": "幽影猎行者",
+        "cnname": "幽影夜行者",
         "cost": 3,
         "races": "Feathered",
         "2races": "",
@@ -529,7 +529,7 @@
         }
     },
     "ShiningAssassin": {
-        "cnname": "光羽猎手",
+        "cnname": "光羽斥候",
         "cost": 4,
         "races": "Feathered",
         "2races": "",
@@ -545,7 +545,7 @@
         }
     },
     "ShiningDragon": {
-        "cnname": "光羽灵龙",
+        "cnname": "光鳞龙",
         "cost": 2,
         "races": "Feathered",
         "2races": "Dragon",
@@ -579,7 +579,7 @@
     "SkullHunter": {
         "cnname": "独眼猎手",
         "cost": 2,
-        "races": "Cave Clan",
+        "races": "caveclan",
         "2races": "",
         "classes": "Hunter",
         "atkspd": 1.3,
@@ -610,7 +610,7 @@
         }
     },
     "SoulBreaker": {
-        "cnname": "拘魂",
+        "cnname": "刺魂者",
         "cost": 1,
         "races": "Goblin",
         "2races": "",
@@ -660,7 +660,7 @@
     "StormShaman": {
         "cnname": "风暴萨满",
         "cost": 4,
-        "races": "Cave Clan",
+        "races": "caveclan",
         "2races": "",
         "classes": "Shaman",
         "atkspd": 1.5,
@@ -692,7 +692,7 @@
     "Swordman": {
         "cnname": "剑圣",
         "cost": 2,
-        "races": "Cave Clan",
+        "races": "caveclan",
         "2races": "",
         "classes": "Warrior",
         "atkspd": 1.1,
@@ -706,11 +706,11 @@
         }
     },
     "TabooWitcher": {
-        "cnname": "猎魔人",
+        "cnname": "禁忌猎魔人",
         "cost": 1,
         "races": "Feathered",
         "2races": "",
-        "classes": "Warlock",
+        "classes": "Witcher",
         "atkspd": 1.2,
         "range": 1,
         "armor": 5,

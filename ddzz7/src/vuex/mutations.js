@@ -33,5 +33,40 @@ export default {
 				}
 			}
 		}
+	},
+	pickChess(state, chessinfo) {
+		for (let i = 0; i < state.pickedChess.length; i++) {
+			if (chessinfo[1] == state.pickedChess[i].cnname || i == 9) {
+				return 0;
+			}
+		}
+		let chessObj = {
+			name: chessinfo[0],
+			cnname: chessinfo[1],
+			race: chessinfo[2],
+			class: chessinfo[3]
+		}
+		state.pickedChess.push(chessObj);
+		for (let i = 0; i < state.raceCount.length; i++) {
+			for (let key in state.raceCount[i]) {
+				if (chessObj.race.toLowerCase() == key) {
+					state.raceCount[i][key] += 1;
+				}
+			}
+		}
+	},
+	cancelChess(state, chessname) {
+		for (let i = 0; i < state.pickedChess.length; i++) {
+			if (chessname == state.pickedChess[i].cnname) {
+				for (let j = 0; j < state.raceCount.length; j++) {
+					for (let key in state.raceCount[j]) {
+						if (state.pickedChess[i].race.toLowerCase() == key) {
+							state.raceCount[j][key] -= 1;
+						}
+					}
+				}
+				state.pickedChess.splice(i, 1);
+			}
+		}
 	}
 }
