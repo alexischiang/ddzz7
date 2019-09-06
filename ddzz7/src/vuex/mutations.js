@@ -54,6 +54,13 @@ export default {
 				}
 			}
 		}
+		for (let i = 0; i < state.classCount.length; i++) {
+			for (let key in state.classCount[i]) {
+				if (chessObj.class.toLowerCase() == key) {
+					state.classCount[i][key] += 1;
+				}
+			}
+		}
 	},
 	cancelChess(state, chessname) {
 		for (let i = 0; i < state.pickedChess.length; i++) {
@@ -62,6 +69,13 @@ export default {
 					for (let key in state.raceCount[j]) {
 						if (state.pickedChess[i].race.toLowerCase() == key) {
 							state.raceCount[j][key] -= 1;
+						}
+					}
+				}
+				for (let j = 0; j < state.classCount.length; j++) {
+					for (let key in state.classCount[j]) {
+						if (state.pickedChess[i].class.toLowerCase() == key) {
+							state.classCount[j][key] -= 1;
 						}
 					}
 				}

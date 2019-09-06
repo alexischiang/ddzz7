@@ -1,10 +1,12 @@
 import chessdatajson from "../data/chessdata.json";
 import builds from '../data/builds'
+import classbuffdata from '../data/classbuffdata'
 import racebuffdata from '../data/racebuffdata'
 export default {
 	chessdata: chessdatajson,
 	builds: builds,
 	racebuffdata: racebuffdata,
+	classbuffdata: classbuffdata,
 	isActiveRace: [{
 			beast: false
 		},

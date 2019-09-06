@@ -50,7 +50,7 @@
     "Berserker": {
         "cnname": "狂战士",
         "cost": 4,
-        "races": "Glacier Clan",
+        "races": "glacier",
         "2races": "",
         "classes": "Warrior",
         "atkspd": 1.1,
@@ -98,7 +98,7 @@
     "Defector": {
         "cnname": "伪装者",
         "cost": 1,
-        "races": "Glacier Clan",
+        "races": "glacier",
         "2races": "",
         "classes": "Shaman",
         "atkspd": 1.5,
@@ -114,7 +114,7 @@
     "DesperateDoctor": {
         "cnname": "冰川巫医",
         "cost": 2,
-        "races": "Glacier Clan",
+        "races": "glacier",
         "2races": "",
         "classes": "Warlock",
         "atkspd": 1.4,
@@ -258,7 +258,7 @@
     "FrostKnight": {
         "cnname": "冰霜骑士",
         "cost": 1,
-        "races": "Glacier Clan",
+        "races": "glacier",
         "2races": "",
         "classes": "Knight",
         "atkspd": 1.3,
