@@ -2,23 +2,26 @@
   <div class="teambuilder-container">
     <selector />
     <rec />
+    <builds />
   </div>
 </template>
 
 <script>
 import selector from "./TeambuilderChildren/selector";
 import rec from "./TeambuilderChildren/rec";
+import builds from "./TeambuilderChildren/builds";
 export default {
   components: {
     selector,
-    rec
+    rec,
+    builds
   }
 };
 </script>
 
 <style scoped>
 .teambuilder-container {
-  padding: 50px 100px;
+  padding: 50px 50px;
   background-color: #2c3e50;
   overflow: hidden;
 }

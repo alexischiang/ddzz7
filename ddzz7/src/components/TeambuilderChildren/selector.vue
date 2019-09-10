@@ -309,9 +309,8 @@ export default {
   float: left;
   box-sizing: border-box;
   padding: 10px 10px 40px 10px;
-  margin-right: 20px;
   position: relative;
-  width: 30%;
+  width: 20%;
 }
 .selector-container::after {
   content: "";
@@ -402,9 +401,7 @@ p {
   transition: 0.3s;
 }
 .row:hover {
-  border: 2px solid #55efc4;
-  background-color: rgb(1, 141, 1);
-  filter: brightness(1.3);
+  background-color: #0984e3;
 }
 .data-block {
   height: 50px;

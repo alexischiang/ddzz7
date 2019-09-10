@@ -36,7 +36,108 @@ let builds = [{
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, 33, 44, 56, '光羽弩手']
 		}
-	}
+	},
+	{
+		name: "test1",
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		}
+	},
+	{
+		name: "test2",
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		}
+	},
+	{
+		name: "test3",
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		}
+	},
+	{
+		name: "test4",
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		}
+	},
+	{
+		name: "test5",
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		}
+	},
+
 ]
 
 export default builds

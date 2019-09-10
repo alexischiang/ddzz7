@@ -32,19 +32,6 @@
           </template>
         </template>
       </div>
-      <p class="p3">选择您的卡组 :</p>
-      <div class="builds-container">
-        <template v-for="build in builds">
-          <div
-            @click="activeBuild(build)"
-            class="build-btn btn"
-            :class="{active:build.actived}"
-            style="cursor:pointer"
-          >
-            <div>{{build.name}}</div>
-          </div>
-        </template>
-      </div>
       <div v-if="recChessFilter.length">
         <template v-for="item in recChessFilter">
           <div class="each-rec" v-for="(value, key) in item">
@@ -114,10 +101,10 @@ export default {
 <style scoped>
 .recommend-container {
   z-index: 1;
-  width: 67%;
+  width: 60%;
   float: left;
   box-sizing: border-box;
-  padding: 10px 40px 40px 20px;
+  padding: 10px 10px 10px 20px;
 }
 .yourchess-container {
   margin: 10px 30px;
@@ -139,6 +126,9 @@ export default {
   line-height: 0;
   position: relative;
 }
+.pickedchess div:hover > img {
+  border: 2px solid red;
+}
 .pickedchess img {
   width: 50px;
   height: 50px;
@@ -146,6 +136,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.4s;
 }
 .yourbuff-container {
   display: flex;
@@ -296,6 +287,7 @@ p {
   width: 80%;
   display: flex;
   background-color: #2980b9;
+  box-shadow: inset 0 0 1px black;
 }
 .rec-chess::after {
   content: "";
@@ -309,6 +301,16 @@ p {
 .chess-wrapper {
   width: 40px;
   position: relative;
+}
+.chess-wrapper::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.349);
 }
 .chess-wrapper:hover > .hover-details {
   display: block;
@@ -420,18 +422,18 @@ p {
   font-style: italic;
 }
 .mychess-cost1 {
-  border: 1px solid #d2d2d2;
+  border: 2px solid #d2d2d2;
 }
 .mychess-cost2 {
-  border: 1px solid #b6e4ec;
+  border: 2px solid #b6e4ec;
 }
 .mychess-cost3 {
-  border: 1px solid #526dec;
+  border: 2px solid #526dec;
 }
 .mychess-cost4 {
-  border: 1px solid #ae7ff7;
+  border: 2px solid #ae7ff7;
 }
 .mychess-cost5 {
-  border: 1px solid #f29a38;
+  border: 2px solid #f29a38;
 }
 </style>
