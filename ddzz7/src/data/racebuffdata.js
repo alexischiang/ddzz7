@@ -1,77 +1,102 @@
 let racebuffdata = [{
 	name: '2人类',
+	logo: 'human',
 	buff: '所有友方人类攻击敌人有20%概率使敌人沉默4秒'
 }, {
 	name: '4人类',
+	logo: 'human',
 	buff: '所有友方人类攻击敌人有40%概率使敌人沉默4秒'
 }, {
 	name: '6人类',
+	logo: 'human',
 	buff: '所有友方人类攻击敌人有60%概率使敌人沉默4秒'
 }, {
 	name: '3光羽族',
+	logo: 'feathered',
 	buff: '所有友方光羽族有20%几率闪避敌人的攻击'
 }, {
 	name: '6光羽族',
+	logo: 'feathered',
 	buff: '所有友方光羽族有40%几率闪避敌人的攻击'
 }, {
 	name: '1恶魔',
+	logo: 'demon',
 	buff: '场上只有1种恶魔时其攻击时对敌人额外造成50%纯粹伤害'
 }, {
 	name: '3哥布林',
+	logo: 'goblin',
 	buff: '使一个随机友军的护甲+12 生命恢复+10'
 }, {
 	name: '6哥布林',
+	logo: 'goblin',
 	buff: '使所有友军的护甲+15 生命恢复+10'
 }, {
 	name: '2野兽',
+	buff: 'beast',
 	buff: '所有友军攻击力+10%，可以被召唤物继承'
 }, {
 	name: '4野兽',
+	buff: 'beast',
 	buff: '所有友军攻击力+30%，可以被召唤物继承'
 }, {
 	name: '6野兽',
+	buff: 'beast',
 	buff: '所有友军攻击力+55%，可以被召唤物继承'
 }, {
 	name: '2洞洞族',
+	logo: 'caveclan',
 	buff: '所有友方洞洞族最大生命值+250'
 }, {
 	name: '4洞洞族',
+	logo: 'caveclan',
 	buff: '所有友方洞洞族最大生命值+600'
 }, {
 	name: '2海族',
+	logo: 'marine',
 	buff: '使所有友军的魔法抗性+30%'
 }, {
 	name: '4海族',
+	logo: 'marine',
 	buff: '使所有友军的魔法抗性+70%'
 }, {
 	name: '2不眠族',
+	logo: 'egersis',
 	buff: '使所有敌军的护甲-4'
 }, {
 	name: '4不眠族',
+	logo: 'egersis',
 	buff: '使所有敌军的护甲-10'
 }, {
 	name: '2冰川族',
+	logo: 'glacier',
 	buff: '所有友方冰川族的攻击速度+35%'
 }, {
 	name: '4冰川族',
+	logo: 'glacier',
 	buff: '所有友军的攻击速度+35%'
 }, {
 	name: '1神族',
+	logo: 'god',
 	buff: '所有神族棋子技能冷却时间减少40%'
 }, {
 	name: '2神族',
+	logo: 'god',
 	buff: '所有友方棋子技能冷却时间减少75%'
 }, {
 	name: '3龙族',
+	logo: 'dragon',
 	buff: '所有友方龙的初始魔法值为100'
 }, {
 	name: '2灵族',
+	logo: 'spirit',
 	buff: '所有友方灵族被近战攻击时有30%概率使攻击者石化4秒'
 }, {
 	name: '4灵族',
+	logo: 'spirit',
 	buff: '所有友方被近战攻击时有50%概率使攻击者石化4秒'
 }, {
 	name: '1矮人族',
+	logo: 'dwarf',
 	buff: '攻击距离+300 优先攻击范围内血量最低的敌人'
 }, ]
 

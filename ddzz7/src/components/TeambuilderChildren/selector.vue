@@ -3,8 +3,8 @@
     <div class="title">在这边选择您的棋子</div>
     <div class="filter">
       <div class="races-filter">
-        <p>种族过滤器</p>
-        <div class="race-btn-container">
+        <p @click="raceFilterShow = !raceFilterShow">种族过滤器</p>
+        <div class="race-btn-container" v-show="raceFilterShow">
           <button
             @click="chooseRace('beast')"
             class="btn race-btn"
@@ -133,9 +133,9 @@
           </button>
         </div>
       </div>
-      <div class="class-filter" style="margin-left:8px">
-        <p>职业过滤器</p>
-        <div class="class-btn-container">
+      <div class="class-filter">
+        <p @click="classFilterShow = !classFilterShow">职业过滤器</p>
+        <div class="class-btn-container" v-show="classFilterShow">
           <button
             @click="chooseClass('assassin')"
             class="btn class-btn"
@@ -230,7 +230,7 @@
       </div>
     </div>
     <div class="search"></div>
-    <div class="form" style="overflow:scroll">
+    <div class="form">
       <div class="data-table">
         <!-- 表头 暂不需要 -->
         <!-- <div class="row table-head">
@@ -241,23 +241,21 @@
         <!-- 表身 -->
         <div v-for="obj in ClassRacefilteredArray" class="outside-forloop">
           <div
-            v-for="(value,key) in obj"
-            :key="key"
             class="row table-body"
-            @click="pickChess([`${key}`,`${chessdata[key].cnname}`,`${chessdata[key].races}`,`${chessdata[key].classes}`])"
+            @click="pickChess([`${obj.name}`,`${obj.cnname}`,`${obj.races}`,`${obj.classes}`,`${obj.cost}`,`${obj.no}`])"
           >
             <!-- 头像 -->
             <div class="data-block body-data pic-block">
-              <img :src="`/headpics/${key}.jpg`" />
+              <img :src="`/headpics/${obj.name}.jpg`" />
             </div>
             <!-- 名字 -->
             <div
-              v-bind:class="`cost${chessdata[key].cost}`"
+              v-bind:class="`cost${obj.cost}`"
               class="data-block body-data name-block"
-            >{{ chessdata[key].cnname}}</div>
+            >{{obj.cnname}}</div>
             <!-- 费用 -->
             <div class="data-block body-data cost-block">
-              <p>{{ chessdata[key].cost}}</p>
+              <p>{{obj.cost}}</p>
               <img src="/cost.jpg" />
             </div>
           </div>
@@ -268,11 +266,11 @@
 </template>
 
 <script>
-import chessdatajson from "../../data/chessdata.json";
 export default {
   data() {
     return {
-      chessdata: chessdatajson
+      raceFilterShow: false,
+      classFilterShow: false
     };
   },
   computed: {
@@ -310,18 +308,27 @@ export default {
 .selector-container {
   float: left;
   box-sizing: border-box;
-  padding: 40px 50px;
+  padding: 10px 10px 40px 10px;
+  margin-right: 20px;
   position: relative;
-  width: 40%;
-  background: black;
+  width: 30%;
+}
+.selector-container::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 0px;
+  right: -10px;
 }
 .title {
   margin: 10px 0;
   text-align: left;
   color: white;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 30px;
-  line-height: 1;
+  font-style: italic;
 }
 p {
   margin: 0;
@@ -329,11 +336,9 @@ p {
 }
 .filter {
   overflow: hidden;
-  width: 500px;
 }
 .races-filter,
 .class-filter {
-  float: left;
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
@@ -344,10 +349,11 @@ p {
 }
 .class-btn-container {
   width: 200px;
-  margin: 10px 0 10px -10px;
+  margin: 10px 0 0px -5px;
 }
 .races-filter p,
 .class-filter p {
+  cursor: pointer;
   margin: 10px 0;
   text-align: left;
   font-size: 20px;
@@ -379,16 +385,19 @@ p {
 }
 
 /* 表格 */
+.form {
+  padding-right: 20px;
+  margin-top: 20px;
+}
 .data-table {
   display: flex;
   flex-flow: column nowrap;
 }
 .row {
-  background-color: darkgreen;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -399,17 +408,37 @@ p {
 }
 .data-block {
   height: 50px;
+  position: relative;
 }
 .pic-block {
   width: 80px;
 }
 .pic-block img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* 名字根据费用变色 */
+.cost1 {
+  color: #d2d2d2;
+}
+.cost2 {
+  color: #b6e4ec;
+}
+.cost3 {
+  color: #526dec;
+}
+.cost4 {
+  color: #ae7ff7;
+}
+.cost5 {
+  color: #f29a38;
 }
 .name-block {
   width: 100px;
-  color: white;
   font-size: 15px;
   display: flex;
   align-items: center;

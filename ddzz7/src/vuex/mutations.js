@@ -44,7 +44,9 @@ export default {
 			name: chessinfo[0],
 			cnname: chessinfo[1],
 			race: chessinfo[2],
-			class: chessinfo[3]
+			class: chessinfo[3],
+			cost: chessinfo[4],
+			no: chessinfo[5]
 		}
 		state.pickedChess.push(chessObj);
 		for (let i = 0; i < state.raceCount.length; i++) {

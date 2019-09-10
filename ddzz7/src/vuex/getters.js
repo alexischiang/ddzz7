@@ -3,21 +3,20 @@ export default {
 	// 为筛选器做输入数组因为需要使用filter方法
 	chessArray: function (state) {
 		let myArray = [];
-		for (let key in state.chessdata) {
+		for (let i in state.chessdata) {
 			const temp = {};
 			let race = "";
-			if (state.chessdata[key].races == "Glacier Clan") {
+			if (state.chessdata[i].races == "Glacier Clan") {
 				race = "Glacier";
-			} else if (state.chessdata[key].races == "Cave Clan") {
+			} else if (state.chessdata[i].races == "Cave Clan") {
 				race = "caveclan";
 			} else {
-				race = state.chessdata[key].races;
+				race = state.chessdata[i].races;
 			}
-			temp[key] = {
-				races: race,
-				"2races": state.chessdata[key]["2races"],
-				classes: state.chessdata[key].classes
-			};
+			temp["name"] = state.chessdata[i].name
+			temp["races"] = state.chessdata[i].races
+			temp["2races"] = state.chessdata[i]["2races"]
+			temp["classes"] = state.chessdata[i].classes
 			myArray.push(temp);
 		}
 		return myArray;
@@ -28,18 +27,16 @@ export default {
 	RacefilteredArray: (state, getters) => {
 		if (state.isActiveRace[14]["none"]) {
 			console.log("all");
-			return getters.chessArray;
+			return state.chessdata;
 		} else {
 			console.log("race-filter");
-			return getters.chessArray.filter(a => {
-				for (let key in a) {
-					for (let i = 0; i < 14; i++) {
-						if (
-							state.isActiveRace[i][a[key].races.toLowerCase()] ||
-							state.isActiveRace[i][a[key]["2races"].toLowerCase()]
-						) {
-							return true;
-						}
+			return state.chessdata.filter(a => {
+				for (let i = 0; i < 14; i++) {
+					if (
+						state.isActiveRace[i][a.races.toLowerCase()] ||
+						state.isActiveRace[i][a["2races"].toLowerCase()]
+					) {
+						return true;
 					}
 				}
 				return false;
@@ -55,7 +52,7 @@ export default {
 			return getters.RacefilteredArray.filter(a => {
 				for (let key in a) {
 					for (let i = 0; i < 10; i++) {
-						if (state.isActiveClass[i][a[key].classes.toLowerCase()]) {
+						if (state.isActiveClass[i][a.classes.toLowerCase()]) {
 							return true;
 						}
 					}
@@ -104,7 +101,7 @@ export default {
 			for (let j = 0; j < recChessCopy.length; j++) {
 				for (let buildname in recChessCopy[j]) {
 					for (let k = 0; k < recChessCopy[j][buildname].length; k++) {
-						if (state.pickedChess[i]['name'] == recChessCopy[j][buildname][k]) {
+						if (state.pickedChess[i]['no'] == recChessCopy[j][buildname][k]) {
 							recChessCopy[j][buildname].splice(k, 1)
 						}
 					}

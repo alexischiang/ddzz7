@@ -3,19 +3,19 @@ let builds = [{
 		actived: true,
 		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
 		finalBuild: [
-			"WisperSeer",
-			"Unicorn",
-			"WarpwoodSage",
-			"Razorclaw",
-			"FallenWitcher",
-			"DoomArbiter",
-			"TabooWitcher",
-			"Werewolf",
-			"PirateCaptain"
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
 		],
 		coreBuild: {
-			coreBuild1: ["WisperSeer", "Unicorn", "WarpwoodSage", "Razorclaw"],
-			coreBuild2: ['WisperSeer', 'WarpwoodSage', ['ShiningAssassin', 'TabooWitcher', 'Shadowcrawler']]
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
 		}
 	},
 	{
@@ -23,19 +23,18 @@ let builds = [{
 		actived: true,
 		buff: ['4德鲁伊', '6光羽', '3猎人'],
 		finalBuild: [
-			"WisperSeer",
-			"Unicorn",
-			"WarpwoodSage",
-			"Razorclaw",
-			"光羽弩手",
-			"ShiningAssassin",
-			"TabooWitcher",
-			"WindRanger",
-			"DwarfSniper"
+			57,
+			50,
+			53,
+			28,
+			33,
+			44,
+			56,
+			11
 		],
 		coreBuild: {
-			coreBuild1: ["WisperSeer", "Unicorn", "WarpwoodSage", "Razorclaw"],
-			coreBuild2: ['WisperSeer', 'WarpwoodSage', 'ShiningAssassin', 'TabooWitcher', 'WindRanger', '光羽弩手']
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, 33, 44, 56, '光羽弩手']
 		}
 	}
 ]

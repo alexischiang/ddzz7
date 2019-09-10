@@ -18,6 +18,8 @@ export default {
 
 <style scoped>
 .teambuilder-container {
+  padding: 50px 100px;
+  background-color: #2c3e50;
   overflow: hidden;
 }
 </style>

@@ -1,9 +1,9 @@
-import chessdatajson from "../data/chessdata.json";
+import chessdata from "../data/chessdata.js";
 import builds from '../data/builds'
 import classbuffdata from '../data/classbuffdata'
 import racebuffdata from '../data/racebuffdata'
 export default {
-	chessdata: chessdatajson,
+	chessdata: chessdata,
 	builds: builds,
 	racebuffdata: racebuffdata,
 	classbuffdata: classbuffdata,

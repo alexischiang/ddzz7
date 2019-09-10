@@ -1,6 +1,7 @@
-let chessdatajson = {
-	"AbyssalCrawler": {
-		"cnname": "海渊猎行者",
+let chessdatajson = [{
+		"name": "AbyssalCrawler",
+		"no": 0,
+		"cnname": "海渊夜行者",
 		"cost": 2,
 		"races": "Marine",
 		"2races": "",
@@ -15,7 +16,9 @@ let chessdatajson = {
 			"hp": 500
 		}
 	},
-	"AbyssalGuard": {
+	{
+		"name": "AbyssalGuard",
+		"no": 1,
 		"cnname": "海渊守卫",
 		"cost": 2,
 		"races": "Marine",
@@ -31,7 +34,9 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"ArgaliKnight": {
+	{
+		"name": "ArgaliKnight",
+		"no": 2,
 		"cnname": "盘羊骑士",
 		"cost": 3,
 		"races": "Human",
@@ -47,10 +52,12 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"Berserker": {
+	{
+		"name": "Berserker",
+		"no": 3,
 		"cnname": "狂战士",
 		"cost": 4,
-		"races": "Glacier Clan",
+		"races": "glacier",
 		"2races": "",
 		"classes": "Warrior",
 		"atkspd": 1.1,
@@ -63,7 +70,9 @@ let chessdatajson = {
 			"hp": 900
 		}
 	},
-	"BlightSorcerer": {
+	{
+		"name": "BlightSorcerer",
+		"no": 4,
 		"cnname": "凋零法师",
 		"cost": 5,
 		"races": "Egersis",
@@ -79,7 +88,9 @@ let chessdatajson = {
 			"hp": 850
 		}
 	},
-	"DarkSpirit": {
+	{
+		"name": "DarkSpirit",
+		"no": 5,
 		"cnname": "暗之灵",
 		"cost": 5,
 		"races": "Spirit",
@@ -95,10 +106,12 @@ let chessdatajson = {
 			"hp": 1000
 		}
 	},
-	"Defector": {
+	{
+		"name": "Defector",
+		"no": 6,
 		"cnname": "伪装者",
 		"cost": 1,
-		"races": "Glacier Clan",
+		"races": "glacier",
 		"2races": "",
 		"classes": "Shaman",
 		"atkspd": 1.5,
@@ -111,10 +124,12 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"DesperateDoctor": {
+	{
+		"name": "DesperateDoctor",
+		"no": 7,
 		"cnname": "冰川巫医",
 		"cost": 2,
-		"races": "Glacier Clan",
+		"races": "glacier",
 		"2races": "",
 		"classes": "Warlock",
 		"atkspd": 1.4,
@@ -127,7 +142,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"Devastator": {
+	{
+		"name": "Devastator",
+		"no": 8,
 		"cnname": "毁灭者",
 		"cost": 5,
 		"races": "Goblin",
@@ -143,12 +160,14 @@ let chessdatajson = {
 			"hp": 1000
 		}
 	},
-	"DoomArbiter": {
-		"cnname": "骑士",
+	{
+		"name": "DoomArbiter",
+		"no": 9,
+		"cnname": "终结审判官",
 		"cost": 4,
 		"races": "Demon",
 		"2races": "",
-		"classes": "Knight",
+		"classes": "Warrior",
 		"atkspd": 1.3,
 		"range": 1,
 		"armor": 5,
@@ -159,7 +178,9 @@ let chessdatajson = {
 			"hp": 950
 		}
 	},
-	"DragonKnight": {
+	{
+		"name": "DragonKnight",
+		"no": 10,
 		"cnname": "龙骑士",
 		"cost": 4,
 		"races": "Human",
@@ -175,7 +196,9 @@ let chessdatajson = {
 			"hp": 800
 		}
 	},
-	"DwarfSniper": {
+	{
+		"name": "DwarfSniper",
+		"no": 11,
 		"cnname": "矮人火枪手",
 		"cost": 3,
 		"races": "Dwarf",
@@ -191,8 +214,10 @@ let chessdatajson = {
 			"hp": 450
 		}
 	},
-	"EgersisRanger": {
-		"cnname": "不眠射手",
+	{
+		"name": "EgersisRanger",
+		"no": 12,
+		"cnname": "不眠游侠",
 		"cost": 1,
 		"races": "Egersis",
 		"2races": "",
@@ -207,8 +232,10 @@ let chessdatajson = {
 			"hp": 400
 		}
 	},
-	"EvilKnight": {
-		"cnname": "邪恶骑士",
+	{
+		"name": "EvilKnight",
+		"no": 13,
+		"cnname": "不眠骑士",
 		"cost": 3,
 		"races": "Egersis",
 		"2races": "",
@@ -223,8 +250,10 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"FallenWitcher": {
-		"cnname": "堕落猎魔人",
+	{
+		"name": "FallenWitcher",
+		"no": 14,
+		"cnname": "沉沦猎魔人",
 		"cost": 3,
 		"races": "Demon",
 		"2races": "",
@@ -239,8 +268,10 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"FlamingWizard": {
-		"cnname": "火焰法师",
+	{
+		"name": "FlamingWizard",
+		"no": 15,
+		"cnname": "焰灵法师",
 		"cost": 3,
 		"races": "Human",
 		"2races": "",
@@ -255,10 +286,12 @@ let chessdatajson = {
 			"hp": 600
 		}
 	},
-	"FrostKnight": {
-		"cnname": "冰川骑士",
+	{
+		"name": "FrostKnight",
+		"no": 16,
+		"cnname": "冰霜骑士",
 		"cost": 1,
-		"races": "Glacier Clan",
+		"races": "glacier",
 		"2races": "",
 		"classes": "Knight",
 		"atkspd": 1.3,
@@ -271,7 +304,9 @@ let chessdatajson = {
 			"hp": 500
 		}
 	},
-	"GodofThunder": {
+	{
+		"name": "GodofThunder",
+		"no": 17,
 		"cnname": "雷神",
 		"cost": 5,
 		"races": "God",
@@ -287,7 +322,9 @@ let chessdatajson = {
 			"hp": 950
 		}
 	},
-	"GodofWar": {
+	{
+		"name": "GodofWar",
+		"no": 18,
 		"cnname": "战神",
 		"cost": 1,
 		"races": "God",
@@ -303,7 +340,9 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"HeavenBomber": {
+	{
+		"name": "HeavenBomber",
+		"no": 19,
 		"cnname": "堕天者",
 		"cost": 1,
 		"races": "Goblin",
@@ -319,7 +358,9 @@ let chessdatajson = {
 			"hp": 500
 		}
 	},
-	"Helicopter": {
+	{
+		"name": "Helicopter",
+		"no": 20,
 		"cnname": "矮人直升机",
 		"cost": 5,
 		"races": "Dwarf",
@@ -335,8 +376,10 @@ let chessdatajson = {
 			"hp": 900
 		}
 	},
-	"HellKnight": {
-		"cnname": "地狱骑士",
+	{
+		"name": "HellKnight",
+		"no": 21,
+		"cnname": "炼狱骑士",
 		"cost": 2,
 		"races": "Demon",
 		"2races": "",
@@ -351,7 +394,9 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"LightbladeKnight": {
+	{
+		"name": "LightbladeKnight",
+		"no": 22,
 		"cnname": "灵刃骑士",
 		"cost": 2,
 		"races": "Feathered",
@@ -367,7 +412,9 @@ let chessdatajson = {
 			"hp": 500
 		}
 	},
-	"LordofSand": {
+	{
+		"name": "LordofSand",
+		"no": 23,
 		"cnname": "沙丘领主",
 		"cost": 3,
 		"races": "Beast",
@@ -383,7 +430,9 @@ let chessdatajson = {
 			"hp": 600
 		}
 	},
-	"OgreMage": {
+	{
+		"name": "OgreMage",
+		"no": 24,
 		"cnname": "基拉法师",
 		"cost": 1,
 		"races": "Kira",
@@ -399,8 +448,10 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"PhantomQueen": {
-		"cnname": "幻影女王",
+	{
+		"name": "PhantomQueen",
+		"no": 25,
+		"cnname": "魅影女王",
 		"cost": 2,
 		"races": "Demon",
 		"2races": "",
@@ -415,7 +466,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"PirateCaptain": {
+	{
+		"name": "PirateCaptain",
+		"no": 26,
 		"cnname": "船长",
 		"cost": 4,
 		"races": "Human",
@@ -431,7 +484,9 @@ let chessdatajson = {
 			"hp": 950
 		}
 	},
-	"PoisonousWorm": {
+	{
+		"name": "PoisonousWorm",
+		"no": 27,
 		"cnname": "魔化巨虫",
 		"cost": 3,
 		"races": "Beast",
@@ -447,7 +502,9 @@ let chessdatajson = {
 			"hp": 600
 		}
 	},
-	"Razorclaw": {
+	{
+		"name": "Razorclaw",
+		"no": 28,
 		"cnname": "利爪",
 		"cost": 4,
 		"races": "Beast",
@@ -463,10 +520,12 @@ let chessdatajson = {
 			"hp": 800
 		}
 	},
-	"RedaxeChief": {
-		"cnname": "斧王",
+	{
+		"name": "RedaxeChief",
+		"no": 29,
+		"cnname": "赤斧酋长",
 		"cost": 1,
-		"races": "Cave Clan",
+		"races": "caveclan",
 		"2races": "",
 		"classes": "Warrior",
 		"atkspd": 1.5,
@@ -479,7 +538,9 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"Ripper": {
+	{
+		"name": "Ripper",
+		"no": 30,
 		"cnname": "伐木者",
 		"cost": 2,
 		"races": "Goblin",
@@ -496,8 +557,10 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"ShadowDevil": {
-		"cnname": "影魔",
+	{
+		"name": "ShadowDevil",
+		"no": 31,
+		"cnname": "暗影魔王",
 		"cost": 3,
 		"races": "Demon",
 		"2races": "",
@@ -512,8 +575,10 @@ let chessdatajson = {
 			"hp": 450
 		}
 	},
-	"Shadowcrawler": {
-		"cnname": "幽影猎行者",
+	{
+		"name": "Shadowcrawler",
+		"no": 32,
+		"cnname": "幽影夜行者",
 		"cost": 3,
 		"races": "Feathered",
 		"2races": "",
@@ -528,8 +593,10 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"ShiningAssassin": {
-		"cnname": "光羽猎手",
+	{
+		"name": "ShiningAssassin",
+		"no": 33,
+		"cnname": "光羽斥候",
 		"cost": 4,
 		"races": "Feathered",
 		"2races": "",
@@ -544,8 +611,10 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"ShiningDragon": {
-		"cnname": "光羽灵龙",
+	{
+		"name": "ShiningDragon",
+		"no": 34,
+		"cnname": "光鳞龙",
 		"cost": 2,
 		"races": "Feathered",
 		"2races": "Dragon",
@@ -560,7 +629,9 @@ let chessdatajson = {
 			"hp": 450
 		}
 	},
-	"Siren": {
+	{
+		"name": "Siren",
+		"no": 35,
 		"cnname": "海妖",
 		"cost": 4,
 		"races": "Marine",
@@ -576,10 +647,12 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"SkullHunter": {
+	{
+		"name": "SkullHunter",
+		"no": 36,
 		"cnname": "独眼猎手",
 		"cost": 2,
-		"races": "Cave Clan",
+		"races": "caveclan",
 		"2races": "",
 		"classes": "Hunter",
 		"atkspd": 1.3,
@@ -592,7 +665,9 @@ let chessdatajson = {
 			"hp": 600
 		}
 	},
-	"SkyBreaker": {
+	{
+		"name": "SkyBreaker",
+		"no": 37,
 		"cnname": "轰天者",
 		"cost": 1,
 		"races": "Goblin",
@@ -609,8 +684,10 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"SoulBreaker": {
-		"cnname": "拘魂",
+	{
+		"name": "SoulBreaker",
+		"no": 38,
+		"cnname": "刺魂者",
 		"cost": 1,
 		"races": "Goblin",
 		"2races": "",
@@ -625,7 +702,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"SoulReaper": {
+	{
+		"name": "SoulReaper",
+		"no": 39,
 		"cnname": "灵魂收割者",
 		"cost": 2,
 		"races": "Egersis",
@@ -641,7 +720,9 @@ let chessdatajson = {
 			"hp": 850
 		}
 	},
-	"StoneSpirit": {
+	{
+		"name": "StoneSpirit",
+		"no": 40,
 		"cnname": "石之灵",
 		"cost": 1,
 		"races": "Spirit",
@@ -657,10 +738,12 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"StormShaman": {
+	{
+		"name": "StormShaman",
+		"no": 41,
 		"cnname": "风暴萨满",
 		"cost": 4,
-		"races": "Cave Clan",
+		"races": "caveclan",
 		"2races": "",
 		"classes": "Shaman",
 		"atkspd": 1.5,
@@ -673,7 +756,9 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"StrangeEgg": {
+	{
+		"name": "StrangeEgg",
+		"no": 42,
 		"cnname": "奇异蛋",
 		"cost": 5,
 		"races": "Feathered",
@@ -689,10 +774,12 @@ let chessdatajson = {
 			"hp": 700
 		}
 	},
-	"Swordman": {
+	{
+		"name": "Swordman",
+		"no": 43,
 		"cnname": "剑圣",
 		"cost": 2,
-		"races": "Cave Clan",
+		"races": "caveclan",
 		"2races": "",
 		"classes": "Warrior",
 		"atkspd": 1.1,
@@ -705,12 +792,14 @@ let chessdatajson = {
 			"hp": 600
 		}
 	},
-	"TabooWitcher": {
-		"cnname": "猎魔人",
+	{
+		"name": "TabooWitcher",
+		"no": 44,
+		"cnname": "禁忌猎魔人",
 		"cost": 1,
 		"races": "Feathered",
 		"2races": "",
-		"classes": "Warlock",
+		"classes": "Witcher",
 		"atkspd": 1.2,
 		"range": 1,
 		"armor": 5,
@@ -722,7 +811,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"TheSource": {
+	{
+		"name": "TheSource",
+		"no": 45,
 		"cnname": "法力之源",
 		"cost": 1,
 		"races": "Human",
@@ -738,7 +829,9 @@ let chessdatajson = {
 			"hp": 450
 		}
 	},
-	"ThunderSpirit": {
+	{
+		"name": "ThunderSpirit",
+		"no": 46,
 		"cnname": "雷之灵",
 		"cost": 3,
 		"races": "Spirit",
@@ -754,7 +847,9 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"TortolaElder": {
+	{
+		"name": "TortolaElder",
+		"no": 47,
 		"cnname": "龟甲长老",
 		"cost": 4,
 		"races": "Human",
@@ -770,7 +865,9 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"TsunamiStalker": {
+	{
+		"name": "TsunamiStalker",
+		"no": 48,
 		"cnname": "海啸追猎者",
 		"cost": 5,
 		"races": "Marine",
@@ -786,7 +883,9 @@ let chessdatajson = {
 			"hp": 950
 		}
 	},
-	"TuskChampion": {
+	{
+		"name": "TuskChampion",
+		"no": 49,
 		"cnname": "海象拳王",
 		"cost": 1,
 		"races": "Beast",
@@ -802,7 +901,9 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"Unicorn": {
+	{
+		"name": "Unicorn",
+		"no": 50,
 		"cnname": "独角兽",
 		"cost": 1,
 		"races": "Beast",
@@ -818,7 +919,9 @@ let chessdatajson = {
 			"hp": 400
 		}
 	},
-	"Venom": {
+	{
+		"name": "Venom",
+		"no": 51,
 		"cnname": "绿龙",
 		"cost": 2,
 		"races": "Dragon",
@@ -834,7 +937,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"Venomancer": {
+	{
+		"name": "Venomancer",
+		"no": 52,
 		"cnname": "萃取者",
 		"cost": 4,
 		"races": "Goblin",
@@ -850,7 +955,9 @@ let chessdatajson = {
 			"hp": 1000
 		}
 	},
-	"WarpwoodSage": {
+	{
+		"name": "WarpwoodSage",
+		"no": 53,
 		"cnname": "扭木贤者",
 		"cost": 3,
 		"races": "Feathered",
@@ -866,7 +973,9 @@ let chessdatajson = {
 			"hp": 650
 		}
 	},
-	"WaterSpirit": {
+	{
+		"name": "WaterSpirit",
+		"no": 54,
 		"cnname": "水之灵",
 		"cost": 2,
 		"races": "Spirit",
@@ -882,7 +991,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"Werewolf": {
+	{
+		"name": "Werewolf",
+		"no": 55,
 		"cnname": "狼人",
 		"cost": 3,
 		"races": "Beast",
@@ -898,7 +1009,9 @@ let chessdatajson = {
 			"hp": 750
 		}
 	},
-	"WindRanger": {
+	{
+		"name": "WindRanger",
+		"no": 56,
 		"cnname": "逐风游侠",
 		"cost": 3,
 		"races": "Feathered",
@@ -914,7 +1027,9 @@ let chessdatajson = {
 			"hp": 550
 		}
 	},
-	"WisperSeer": {
+	{
+		"name": "WisperSeer",
+		"no": 57,
 		"cnname": "慧语先知",
 		"cost": 2,
 		"races": "Feathered",
@@ -930,6 +1045,6 @@ let chessdatajson = {
 			"hp": 500
 		}
 	}
-}
+]
 
 export default chessdatajson
