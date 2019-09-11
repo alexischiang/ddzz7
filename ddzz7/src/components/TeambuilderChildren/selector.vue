@@ -1,6 +1,11 @@
 <template>
   <div class="selector-container">
-    <div class="title">在这边选择您的棋子</div>
+    <div class="top">
+      <div class="chess-img">
+        <img src="/chess.png" alt />
+      </div>
+      <div class="title">选择您的棋子</div>
+    </div>
     <div class="filter">
       <div class="races-filter">
         <p @click="raceFilterShow = !raceFilterShow">种族过滤器</p>
@@ -335,6 +340,7 @@ p {
 }
 .filter {
   overflow: hidden;
+  margin-top: 7px;
 }
 .races-filter,
 .class-filter {
@@ -458,5 +464,26 @@ p {
   position: relative;
   top: 15px;
   left: -5px;
+}
+.chess-img {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  float: left;
+}
+.chess-img img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.title {
+  float: left;
+  margin-left: 13px;
+  margin-top: 28px;
+}
+.top {
+  overflow: hidden;
 }
 </style>

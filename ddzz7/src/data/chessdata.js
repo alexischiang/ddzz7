@@ -723,7 +723,7 @@ let chessdatajson = [{
 	{
 		"name": "StoneSpirit",
 		"no": 40,
-		"cnname": "石之灵",
+		"cnname": "岩之灵",
 		"cost": 1,
 		"races": "Spirit",
 		"2races": "",

@@ -1,6 +1,11 @@
 <template>
   <div class="recommend-container">
-    <p class="p1">您的阵容 (最多10人口) :</p>
+    <div class="top">
+      <div class="chess-img">
+        <img src="/team.png" alt />
+      </div>
+      <p class="p1">您的阵容 (最多10人口) :</p>
+    </div>
     <div class="yourchess-container">
       <div class="pickedchess" :class="{none:!pickedChess.length}">
         <div
@@ -156,7 +161,7 @@ p {
 .p1 {
   text-align: left;
   color: white;
-  margin: 10px 30px;
+  margin: 26px 15px 10px 15px;
   font-size: 18px;
   font-weight: bold;
   font-style: italic;
@@ -435,5 +440,25 @@ p {
 }
 .mychess-cost5 {
   border: 2px solid #f29a38;
+}
+.chess-img {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  margin-left: 30px;
+  float: left;
+}
+.chess-img img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.p1 {
+  float: left;
+}
+.top {
+  overflow: hidden;
 }
 </style>

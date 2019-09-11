@@ -1,6 +1,11 @@
 <template>
   <div class="cardbuilds-container">
-    <p style="margin-bottom:20px;">已激活卡组:</p>
+    <div class="top">
+      <div class="chess-img">
+        <img src="/cards.png" alt />
+      </div>
+      <p class="p1">已激活卡组:</p>
+    </div>
     <div class="builds-container">
       <template v-for="build in builds">
         <div v-if="build.actived" class="build-btn">
@@ -123,5 +128,30 @@ p {
   border: 1px solid white;
   background-color: #394e64;
   filter: brightness(1.3);
+}
+.chess-img {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  float: left;
+}
+.chess-img img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.p1 {
+  text-align: left;
+  color: white;
+  margin: 26px 15px 15px 11px;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  float: left;
+}
+.top {
+  overflow: hidden;
 }
 </style>
