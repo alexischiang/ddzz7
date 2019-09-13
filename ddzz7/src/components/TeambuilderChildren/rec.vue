@@ -1,11 +1,18 @@
 <template>
   <div class="recommend-container">
+    <!-- 
+        ---------------------
+              阵容 栏
+        ---------------------
+    -->
+    <!-- 顶端logo + 标题 -->
     <div class="top">
       <div class="chess-img">
         <img src="/team.png" alt />
       </div>
       <p class="p1">您的阵容 (最多10人口) :</p>
     </div>
+    <!-- 阵容框 -->
     <div class="yourchess-container">
       <div class="pickedchess" :class="{none:!pickedChess.length}">
         <div
@@ -16,11 +23,19 @@
           <img :src="`/headpics2/${item.name}.jpg`" :class="`mychess-cost${item.cost}`" />
         </div>
       </div>
+      <!-- 
+        ---------------------
+              Buff 栏
+        ---------------------
+      -->
+      <!-- 显示按键 -->
       <div style="overflow:hidden;position:relative;margin:10px 0px;">
         <p class="buff-text">BUFF 显示</p>
         <div class="ios-toggle buff" @click="checked = !checked" :class="{checked:checked}"></div>
       </div>
-      <div class="yourbuff-container" v-show="checked">
+      <!-- 展示栏 -->
+      <div class="yourbuff-container" :class="{open:checked}">
+        <!-- 种族buff -->
         <template v-for="item in raceBuffArray">
           <template v-if="item.length">
             <template v-for="obj in item">
@@ -28,18 +43,43 @@
                 <div class="buff-logo">
                   <img :src="`/races/${obj.logo}.png`" />
                 </div>
-                <div class="p">
-                  <p class="p-name">{{obj.name}}</p>
-                  <p class="p-buff">{{obj.buff}}</p>
+                <p class="p-name p">{{obj.name}}</p>
+                <p class="p-buff p">{{obj.buff}}</p>
+              </div>
+            </template>
+          </template>
+        </template>
+        <!-- 职业buff -->
+        <template v-for="item in classBuffArray">
+          <template v-if="item.length">
+            <template v-for="obj in item">
+              <div class="each-buff">
+                <div class="buff-logo">
+                  <img :src="`/classes/${obj.logo}.png`" />
                 </div>
+                <p class="p-name p">{{obj.name}}</p>
+                <p class="p-buff p">{{obj.buff}}</p>
               </div>
             </template>
           </template>
         </template>
       </div>
-      <div v-if="recChessFilter.length">
+      <!-- 
+        ---------------------
+              推荐 栏
+        ---------------------
+      -->
+      <div class="rec-container" v-if="recChessFilter.length">
+        <div style="overflow:hidden;position:relative;margin:10px 0px 15px 0;">
+          <p class="buff-text">详细数据</p>
+          <div
+            class="ios-toggle detail"
+            @click="buildDetailChecked = !buildDetailChecked"
+            :class="{checked:buildDetailChecked}"
+          ></div>
+        </div>
         <template v-for="item in recChessFilter">
-          <div class="each-rec" v-for="(value, key) in item">
+          <div class="each-rec" v-for="(value, key) in item[0]">
             <div class="each-rec-wrapper"></div>
             <div class="rec-name">{{key}}</div>
             <div class="rec-chess">
@@ -52,6 +92,13 @@
                 </div>
               </div>
             </div>
+            <div class="more" v-for="(value, key) in item[1]">
+              <img
+                src="/more.png"
+                @click="showDetail(value)"
+                :class="{showDetail:builds[value].detail}"
+              />
+            </div>
           </div>
         </template>
       </div>
@@ -63,11 +110,11 @@
 <script>
 import { mapState } from "vuex";
 import { mapGetters } from "vuex";
-import { print } from "graphql";
 export default {
   data() {
     return {
       checked: false,
+      buildDetailChecked: false,
       showBuff: true
     };
   },
@@ -98,6 +145,14 @@ export default {
         build.actived = true;
       }
       console.log(build.actived);
+    },
+    showDetail(index) {
+      console.log(index);
+      if (this.$store.state.builds[index].detail) {
+        this.$store.state.builds[index].detail = false;
+      } else {
+        this.$store.state.builds[index].detail = true;
+      }
     }
   }
 };
@@ -143,18 +198,6 @@ export default {
   transform: translate(-50%, -50%);
   transition: 0.4s;
 }
-.yourbuff-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0px;
-  justify-content: space-between;
-}
-.each-buff {
-  width: 48%;
-  display: flex;
-  height: 80px;
-  margin: 5px 1%;
-}
 p {
   margin: 0;
 }
@@ -188,17 +231,35 @@ p {
   width: 100px;
   cursor: pointer;
 }
+
+/* buff栏样式 */
+.yourbuff-container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0px;
+  margin-bottom: 10px;
+  height: 0px;
+  overflow: hidden;
+}
+.yourbuff-container.open {
+  transition: 0.3s;
+  height: auto;
+}
+.each-buff {
+  display: flex;
+  height: 40px;
+  margin: 3px 0px;
+}
 .buff-logo {
   line-height: 0;
-  width: 80px;
-  background-color: #2980b9;
+  width: 40px;
   position: relative;
   z-index: 4;
 }
 .buff-logo::after {
   content: "";
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -207,31 +268,34 @@ p {
   z-index: 5;
 }
 .buff-logo img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 6;
+  filter: brightness(1.3);
 }
 .p {
-  flex: 7;
-  padding: 0 15px;
-  background: #3498db;
-  overflow: hidden;
   color: white;
   text-align: left;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
 }
 .p-name {
+  padding: 0 5px 0 8px;
+  width: 80px;
   font-size: 20px;
+  line-height: 40px;
   font-weight: 900;
+  text-shadow: 5px 7px 10px rgba(0, 0, 0, 0.521);
 }
 .p-buff {
-  font-size: 10px;
+  padding: 0 5px 0 12px;
+  font-size: 14px;
+  line-height: 30px;
+  margin: 5px 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 .builds-container {
   padding: 5px 0px;
@@ -245,6 +309,11 @@ p {
   height: 50px;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.rec-container {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .each-rec {
@@ -328,6 +397,7 @@ p {
   width: 100px;
   padding: 5px;
   display: none;
+  z-index: 999;
 }
 .hover-details p {
   color: white;
@@ -413,7 +483,8 @@ p {
   background-color: #2ecc71;
   z-index: 97;
 }
-.ios-toggle.buff {
+.ios-toggle.buff,
+.ios-toggle.detail {
   float: left;
   margin-left: 10px;
   position: relative;
@@ -460,5 +531,27 @@ p {
 }
 .top {
   overflow: hidden;
+}
+.more {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-50%);
+  opacity: 1;
+  cursor: pointer;
+}
+.more img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.more img:hover {
+  opacity: 1;
+}
+.showDetail {
+  transform: rotate(90deg);
 }
 </style>

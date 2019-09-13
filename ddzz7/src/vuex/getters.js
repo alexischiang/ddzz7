@@ -87,22 +87,28 @@ export default {
 			let output = [];
 			for (let i = 0; i < arr.length; i++) {
 				let a = [];
+				let b = [];
 				let obj = {};
+				let obj2 = {};
 				for (let j = 0; j < arr[i].finalBuild.length; j++) {
 					a.push(arr[i].finalBuild[j])
 				}
 				obj[arr[i].name] = a;
-				output.push(obj);
+				obj2['no'] = arr[i].no;
+				b.push(obj);
+				b.push(obj2);
+				output.push(b);
+				console.log(output)
 			}
 			return output
 		};
 		let recChessCopy = getRecChess(getters.buildsActivedArray)
 		for (let i = 0; i < state.pickedChess.length; i++) {
 			for (let j = 0; j < recChessCopy.length; j++) {
-				for (let buildname in recChessCopy[j]) {
-					for (let k = 0; k < recChessCopy[j][buildname].length; k++) {
-						if (state.pickedChess[i]['no'] == recChessCopy[j][buildname][k]) {
-							recChessCopy[j][buildname].splice(k, 1)
+				for (let buildname in recChessCopy[j][0]) {
+					for (let k = 0; k < recChessCopy[j][0][buildname].length; k++) {
+						if (state.pickedChess[i]['no'] == recChessCopy[j][0][buildname][k]) {
+							recChessCopy[j][0][buildname].splice(k, 1)
 						}
 					}
 				}
