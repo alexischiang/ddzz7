@@ -79,26 +79,76 @@
           ></div>
         </div>
         <template v-for="item in recChessFilter">
-          <div class="each-rec" v-for="(value, key) in item[0]">
-            <div class="each-rec-wrapper"></div>
-            <div class="rec-name">{{key}}</div>
-            <div class="rec-chess">
-              <div v-for="chessno in value" class="chess-wrapper">
-                <img :src="`/headpics/${chessdata[chessno].name}.jpg`" />
-                <div class="hover-details">
-                  <p>{{chessdata[chessno].cnname}}</p>
-                  <p>职业: {{chessdata[chessno].classes}}</p>
-                  <p>种族: {{chessdata[chessno].races}}</p>
+          <div v-for="(value, key) in item[0]" class="rec">
+            <!-- key:value -->
+            <!-- {卡组名:[棋子编号...]} -->
+            <div class="each-rec">
+              <div class="each-rec-wrapper"></div>
+              <div class="rec-name">{{key}}</div>
+              <div class="rec-chess brief">
+                <div v-for="chessno in value" class="chess-wrapper">
+                  <!-- chessno:每一个棋子编号 -->
+                  <img :src="`/headpics/${chessdata[chessno].name}.jpg`" />
+                  <div class="hover-details">
+                    <p>{{chessdata[chessno].cnname}}</p>
+                    <p>职业: {{chessdata[chessno].classes}}</p>
+                    <p>种族: {{chessdata[chessno].races}}</p>
+                  </div>
                 </div>
               </div>
+              <div class="more" v-for="(value, key) in item[1]">
+                <!-- key:value -->
+                <!-- {no:卡组编号} -->
+                <img
+                  src="/more.png"
+                  @click="showDetail(value)"
+                  :class="{showDetail:builds[value].detail}"
+                />
+              </div>
             </div>
-            <div class="more" v-for="(value, key) in item[1]">
-              <img
-                src="/more.png"
-                @click="showDetail(value)"
-                :class="{showDetail:builds[value].detail}"
-              />
-            </div>
+            <template v-for="(value,key) in item[1]">
+              <!-- key:value -->
+              <!-- {no:卡组编号} -->
+              <!-- 访问指定卡组：builds[value] -->
+              <div class="each-detail" :class="{show:builds[value].detail}">
+                <div class="detail-1">
+                  <div class="early-build">
+                    <p class="little-title">前期阵容:</p>
+                    <div class="rec-chess detail">
+                      <div v-for="i in builds[value].earlyBuild" class="chess-wrapper">
+                        <img :src="`/headpics/${chessdata[i].name}.jpg`" />
+                        <div class="hover-details">
+                          <p>{{chessdata[i].cnname}}</p>
+                          <p>职业: {{chessdata[i].classes}}</p>
+                          <p>种族: {{chessdata[i].races}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mid-build">
+                    <p class="little-title">中期阵容:</p>
+                    <div class="rec-chess detail">
+                      <div v-for="i in builds[value].midBuild" class="chess-wrapper">
+                        <img :src="`/headpics/${chessdata[i].name}.jpg`" />
+                        <div class="hover-details">
+                          <p>{{chessdata[i].cnname}}</p>
+                          <p>职业: {{chessdata[i].classes}}</p>
+                          <p>种族: {{chessdata[i].races}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-2">
+                  <div class="core-build">
+                    <p class="little-title">核心卡组:</p>
+                  </div>
+                </div>
+                <div class="detail-3">
+                  <p class="little-title">玩法介绍:</p>
+                </div>
+              </div>
+            </template>
           </div>
         </template>
       </div>
@@ -317,7 +367,6 @@ p {
 }
 
 .each-rec {
-  margin: 10px 0;
   display: flex;
   position: relative;
 
@@ -357,13 +406,9 @@ p {
   z-index: 81;
 }
 .rec-chess {
-  padding-left: 3%;
-  width: 80%;
   display: flex;
-  background-color: #2980b9;
-  box-shadow: inset 0 0 1px black;
 }
-.rec-chess::after {
+.brief::after {
   content: "";
   width: 8px;
   height: 50px;
@@ -371,6 +416,12 @@ p {
   position: absolute;
   top: 0px;
   right: 0px;
+}
+.brief {
+  padding-left: 3%;
+  width: 80%;
+  background-color: #2980b9;
+  box-shadow: inset 0 0 1px black;
 }
 .chess-wrapper {
   width: 40px;
@@ -553,5 +604,44 @@ p {
 }
 .showDetail {
   transform: rotate(90deg);
+}
+
+.rec {
+  margin: 10px 0;
+}
+.each-detail {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #297fb99d;
+  z-index: 998;
+  height: 0;
+  transition: 0.3s;
+  overflow: hidden;
+}
+.each-detail.show {
+  height: 160px;
+}
+
+.each-detail p {
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+}
+.little-title {
+  line-height: 40px;
+  margin: 0 5px;
+}
+.detail-1 {
+  display: flex;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.early-build,
+.mid-build {
+  flex: 5;
+  display: flex;
+  height: 40px;
 }
 </style>

@@ -1,6 +1,6 @@
 let builds = [{
 		name: "3光羽 德",
-		no: 1,
+		no: 0,
 		actived: true,
 		detail: false,
 		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
@@ -15,6 +15,8 @@ let builds = [{
 			55,
 			26
 		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, [33, 44, 32]]
@@ -22,7 +24,7 @@ let builds = [{
 	},
 	{
 		name: "6光羽 德猎",
-		no: 2,
+		no: 1,
 		actived: true,
 		detail: false,
 		buff: ['4德鲁伊', '6光羽', '3猎人'],
@@ -36,6 +38,8 @@ let builds = [{
 			56,
 			11
 		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, 33, 44, 56, '光羽弩手']
@@ -43,7 +47,7 @@ let builds = [{
 	},
 	{
 		name: "德刺",
-		no: 3,
+		no: 2,
 		actived: true,
 		detail: false,
 		buff: ['4德鲁伊', '3光羽', '2野兽', '6刺客', '1恶魔'],
@@ -59,6 +63,8 @@ let builds = [{
 			25,
 			33
 		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [32,
@@ -72,7 +78,7 @@ let builds = [{
 	},
 	{
 		name: "4术 精英战",
-		no: 4,
+		no: 3,
 		actived: true,
 		detail: false,
 		buff: ['6战士', '4术士', '2野兽', '2人类', '2冰川族', '1恶魔', '2不眠族'],
@@ -88,14 +94,16 @@ let builds = [{
 			39,
 			7
 		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, [33, 44, 32]]
 		}
 	},
 	{
-		name: "新手精英战",
-		no: 5,
+		name: "9精英战",
+		no: 4,
 		actived: true,
 		detail: false,
 		buff: ['9战士', '2海族', '2野兽', '2人类', '2洞洞族', '1恶魔'],
@@ -111,13 +119,39 @@ let builds = [{
 			29,
 			9
 		],
+		earlyBuild: [49, 29, 43, 1],
+		midBuild: [49, 29, 43, 1, 55, 3],
+		coreBuild: {
+			coreBuild1: [57, 50, 53, 28],
+			coreBuild2: [57, 53, [33, 44, 32]]
+		},
+
+	},
+	{
+		name: "test4",
+		no: 5,
+		actived: false,
+		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
+		finalBuild: [
+			57,
+			50,
+			53,
+			28,
+			14,
+			9,
+			44,
+			55,
+			26
+		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, [33, 44, 32]]
 		}
 	},
 	{
-		name: "test4",
+		name: "test5",
 		no: 6,
 		actived: false,
 		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
@@ -132,27 +166,8 @@ let builds = [{
 			55,
 			26
 		],
-		coreBuild: {
-			coreBuild1: [57, 50, 53, 28],
-			coreBuild2: [57, 53, [33, 44, 32]]
-		}
-	},
-	{
-		name: "test5",
-		no: 7,
-		actived: false,
-		buff: ['4德鲁伊', '3光羽', '2野兽', '2人类', '3战士', '1恶魔', '2猎魔人'],
-		finalBuild: [
-			57,
-			50,
-			53,
-			28,
-			14,
-			9,
-			44,
-			55,
-			26
-		],
+		earlyBuild: [],
+		midBuild: [],
 		coreBuild: {
 			coreBuild1: [57, 50, 53, 28],
 			coreBuild2: [57, 53, [33, 44, 32]]
