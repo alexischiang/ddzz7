@@ -74,7 +74,7 @@
           <p class="buff-text">详细数据</p>
           <div
             class="ios-toggle detail"
-            @click="buildDetailChecked = !buildDetailChecked"
+            @click="buildDetailCheckedMethod()"
             :class="{checked:buildDetailChecked}"
           ></div>
         </div>
@@ -117,11 +117,6 @@
                     <div class="rec-chess detail">
                       <div v-for="i in builds[value].earlyBuild" class="chess-wrapper">
                         <img :src="`/headpics/${chessdata[i].name}.jpg`" />
-                        <div class="hover-details">
-                          <p>{{chessdata[i].cnname}}</p>
-                          <p>职业: {{chessdata[i].classes}}</p>
-                          <p>种族: {{chessdata[i].races}}</p>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -130,22 +125,26 @@
                     <div class="rec-chess detail">
                       <div v-for="i in builds[value].midBuild" class="chess-wrapper">
                         <img :src="`/headpics/${chessdata[i].name}.jpg`" />
-                        <div class="hover-details">
-                          <p>{{chessdata[i].cnname}}</p>
-                          <p>职业: {{chessdata[i].classes}}</p>
-                          <p>种族: {{chessdata[i].races}}</p>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="detail-2">
-                  <div class="core-build">
-                    <p class="little-title">核心卡组:</p>
+                  <p class="little-title">核心卡组及玩法介绍:</p>
+                  <div class="core">
+                    <template v-for="eachCoreBuild in builds[value].coreBuild">
+                      <div class="each-core-build">
+                        <div class="core-chess-img">
+                          <template v-for="eachChessNo in eachCoreBuild['chess']">
+                            <img :src="`/headpics/${chessdata[eachChessNo].name}.jpg`" />
+                          </template>
+                        </div>
+                        <div class="introduction">
+                          <p>{{eachCoreBuild['introduction']}}</p>
+                        </div>
+                      </div>
+                    </template>
                   </div>
-                </div>
-                <div class="detail-3">
-                  <p class="little-title">玩法介绍:</p>
                 </div>
               </div>
             </template>
@@ -202,6 +201,19 @@ export default {
         this.$store.state.builds[index].detail = false;
       } else {
         this.$store.state.builds[index].detail = true;
+      }
+    },
+    buildDetailCheckedMethod() {
+      if (this.buildDetailChecked) {
+        for (let i in this.$store.state.builds) {
+          this.$store.state.builds[i].detail = false;
+        }
+        this.buildDetailChecked = false;
+      } else {
+        for (let i in this.$store.state.builds) {
+          this.$store.state.builds[i].detail = true;
+        }
+        this.buildDetailChecked = true;
       }
     }
   }
@@ -621,13 +633,13 @@ p {
   overflow: hidden;
 }
 .each-detail.show {
-  height: 160px;
+  height: 200px;
 }
 
 .each-detail p {
-  font-size: 18px;
-  font-weight: 400;
-  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  color: #d1d8dd;
 }
 .little-title {
   line-height: 40px;
@@ -643,5 +655,44 @@ p {
   flex: 5;
   display: flex;
   height: 40px;
+}
+.detail-2 {
+  border-top: 1px solid rgba(255, 255, 255, 0.342);
+  margin: 5px 10px;
+}
+.detail-2 .little-title {
+  line-height: 18px;
+  text-align: left;
+  margin: 10px 5px;
+}
+
+.core {
+  display: flex;
+  flex-wrap: wrap;
+}
+.each-core-build {
+  display: flex;
+  margin: 5px;
+  background-color: #54a0ff;
+  padding: 3px 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.507);
+}
+.core-chess-img {
+  line-height: 0;
+}
+.core-chess-img img {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  bottom: 2px;
+}
+.introduction {
+  margin: 0 3px;
+  line-height: 30px;
+}
+.introduction p {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
 }
 </style>

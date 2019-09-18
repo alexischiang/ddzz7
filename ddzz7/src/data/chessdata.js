@@ -1044,7 +1044,44 @@ let chessdatajson = [{
 			"dmg": 47,
 			"hp": 500
 		}
+	},
+	{
+		"name": "1",
+		"no": 58,
+		"cnname": "沉沦守卫",
+		"cost": 5,
+		"races": "Demon",
+		"2races": "",
+		"classes": "Warrior",
+		"atkspd": 1.4,
+		"range": 3,
+		"armor": 0,
+		"mr": 0,
+		"lv1": {
+			"dps": 34,
+			"dmg": 47,
+			"hp": 500
+		}
+	},
+	{
+		"name": "Zhanbushi",
+		"no": 59,
+		"cnname": "占卜师",
+		"cost": 3,
+		"races": "glacier",
+		"2races": "",
+		"classes": "priest",
+		"atkspd": 1.4,
+		"range": 3,
+		"armor": 0,
+		"mr": 0,
+		"lv1": {
+			"dps": 34,
+			"dmg": 47,
+			"hp": 500
+		}
 	}
+
 ]
 
 export default chessdatajson
